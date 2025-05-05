@@ -1,7 +1,6 @@
 import logo from '@/assets/img/logo.jpg';
 import { ButtonPrimary } from '@/core/components/ButtonPrimary';
 import { MenuLanguage } from '@/core/components/MenuLanguage';
-import { IconButton } from '@chakra-ui/react';
 import { MdOutlinePermPhoneMsg } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
