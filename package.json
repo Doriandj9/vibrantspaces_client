@@ -1,0 +1,53 @@
+{
+  "name": "vibrantspaces_client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "css-watch": "tailwindcss -i ./src/index.css -o ./src/styles/main.css --watch",
+    "css": "tailwindcss -i ./src/index.css -o ./src/styles/main.css",
+    "trans-core": "i18next-resources-for-ts interface -i ./src/core/translations/en -o ./src/core/@types/trans.d.ts",
+    "trans-client": "i18next-resources-for-ts interface -i ./src/modules/client/translations/en -o ./src/modules/client/@types/trans.d.ts"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.17.0",
+    "@emotion/react": "^11.14.0",
+    "@tailwindcss/vite": "^4.1.5",
+    "@tanstack/react-query": "^5.75.1",
+    "i18next": "^25.0.2",
+    "i18next-resources-for-ts": "^1.6.0",
+    "jwt-decode": "^4.0.0",
+    "lottie-react": "^2.4.1",
+    "moment": "^2.30.1",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-i18next": "^15.5.1",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.5.3",
+    "react-topbar-progress-indicator": "^4.1.1",
+    "sonner": "^2.0.3",
+    "zustand": "^5.0.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.26.1",
+    "vite": "^6.3.1"
+  }
+}

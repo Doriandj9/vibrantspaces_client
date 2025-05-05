@@ -1,0 +1,9 @@
+interface Resources {
+  "client": {
+    "paragraphs": {
+      "initial": "Vibrant Essences LLC is a company dedicated to the comprehensive cleaning of residential properties in the state of Florida. Our mission is to provide efficient and reliable solutions that guarantee customer satisfaction."
+    }
+  }
+}
+
+export default Resources;
