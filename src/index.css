@@ -38,4 +38,13 @@
     @apply bg-white shadow-lg rounded-xl dark:bg-slate-700 dark:shadow-slate-800;
   }
 
+  .item-link {
+    @apply cursor-pointer text-gray-700 hover:bg-gray-100 duration-200 transition-all;
+  }
+
+
+  .item-link:hover::before {
+    content: '- ';
+  }
+
 }

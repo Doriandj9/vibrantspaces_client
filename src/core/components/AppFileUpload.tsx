@@ -21,24 +21,18 @@ type AppFileUploadProps = Omit<FileUploadRootProps, DisabledFileUpProps> & {
 export const AppFileUpload: React.FC<AppFileUploadProps> = ({ name, label, verifyFiles, className, control, isRequired, labelUpload, descriptionUpload, ...rootProps }) => {
 
     return (
-        <div className={`${className}`}>
-            <Controller
-                name={name}
-                control={control}
-                render={({ field, fieldState }) => {
+        <>
+            <div className={className}>
+                <Controller
+                    name={name}
+                    control={control}
+                    render={({ field, fieldState }) => {
 
-                    return (
-                        <Field.Root
+                        return (
+                            <Field.Root
                             invalid={!!fieldState.error}
-                        >
-                            <Field.Label>
-                                <strong>{label} {isRequired && <span className="text-red-500">*</span>}</strong>
-                            </Field.Label>
-                            <FileUpload.Root
-                                {...rootProps}
-                                width={'xs'} height={'xs'}
-                                alignItems="stretch"
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            {...rootProps}
+                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     if (e.target.files && e.target.files[0]) {
                                         const file = e.target.files[0];
 
@@ -54,9 +48,15 @@ export const AppFileUpload: React.FC<AppFileUploadProps> = ({ name, label, verif
                                     }
                                 }}
                             >
-                                <FileUpload.HiddenInput />
-                                <FileUpload.Dropzone
-
+                                <Field.Label 
+                                >
+                                    <strong>{label} {isRequired && <span className="text-red-500">*</span>}</strong>
+                                </Field.Label>
+                                <FileUpload.Root maxW="xl" alignItems="stretch" maxFiles={1}
+                                
+                                >
+                                    <FileUpload.HiddenInput />
+                                    <FileUpload.Dropzone
                                     onDrop={(e) => {
                                         const file = e.dataTransfer.files[0];
                                         if (file) {
@@ -70,24 +70,28 @@ export const AppFileUpload: React.FC<AppFileUploadProps> = ({ name, label, verif
                                             }
                                         }
                                     }}
-                                />
-                                <Icon size="md" color="fg.muted">
-                                    <LuUpload />
-                                </Icon>
-                                <FileUpload.DropzoneContent>
-                                    <Box>{labelUpload ?? "Arrastre y suelte aquí para cargar o haga click aquí para buscar"}</Box>
-                                    <Box color="fg.muted">{descriptionUpload ?? '.png, .jpg up to 5MB'}</Box>
-                                </FileUpload.DropzoneContent>
-                                <FileUpload.List files={field.value instanceof File ? [field.value] : []} />
-                                <Field.ErrorText>{fieldState.error?.message}</Field.ErrorText>
-                            </FileUpload.Root>
-                        </Field.Root>
-                    );
-                }}
+                                    >
+                                        <Icon size="md" color="fg.muted">
+                                            <LuUpload />
+                                        </Icon>
+                                        <FileUpload.DropzoneContent>
+                                            <Box>{labelUpload ?? 'Arrastre y suelte aquí para cargar o haga click aquí para buscar'}</Box>
+                                            <Box color="fg.muted">{descriptionUpload ?? '.png, .jpg up to 5MB'}</Box>
+                                        </FileUpload.DropzoneContent>
+                                    </FileUpload.Dropzone>
+                                    <FileUpload.List files={field.value instanceof File ? [field.value] : []} />
+                                </FileUpload.Root>
+                                <Field.ErrorText>
+                                    {fieldState.error?.message}
+                                </Field.ErrorText>
+                            </Field.Root>
 
-            />
+                        );
+                    }}
+                />
 
-
-        </div>
+            </div>
+        </>
     );
+
 };

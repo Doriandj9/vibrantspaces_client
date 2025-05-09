@@ -9,7 +9,7 @@ export const AppLayout: React.FC<Children> = ({ children }) => {
 
     return (
         <>
-            <div className="bg-white min-h-screen">
+            <div className="bg-white min-h-screen flex flex-col">
                 <HeaderPage />
                 <div className="pt-28 text-gray-900">
                     {children}

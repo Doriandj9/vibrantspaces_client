@@ -1,18 +1,19 @@
 import logo from '@/assets/img/logo.jpg';
-import { ButtonPrimary } from '@/core/components/ButtonPrimary';
 import { MenuLanguage } from '@/core/components/MenuLanguage';
 import { MenuMobile } from '@/core/components/MenuMobile';
 import { Button } from '@chakra-ui/react';
-import { MdOutlinePermPhoneMsg } from "react-icons/md";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { MdLogin } from "react-icons/md";
 import { useAuthStore } from '@/store/authStore';
 import { webRoutes } from '@/config/webRoutes';
 import { TbLayoutDashboard } from "react-icons/tb";
+import { useTranslation } from 'react-i18next';
+import { ServicesMenu } from '@/core/components/ServicesMenu';
+import { ContactUs } from '@/core/components/ContacUs';
 
 export const HeaderPage = () => {
     const isLogin = useAuthStore((state) => state.isLogin);
+    const [t] = useTranslation('core');
 
     return (
         <>
@@ -25,21 +26,14 @@ export const HeaderPage = () => {
 
                         <div className='w-96 text-slate-800 justify-around gap-2 hidden md:flex'>
                             <Link to={'/'}>
-                            Inicio
+                                {t('app.Home')}
                             </Link>
-                            <button className='flex items-start cursor-pointer'>
-                                Servicios
-                                <MdKeyboardArrowDown />
-                            </button>
-
+                            <ServicesMenu />
                             <Link to={''}>
-                                Nosotros
+                                {t('app.Privacidad')}
                             </Link>
                             <Link to={''}>
-                                Privacidad
-                            </Link>
-                            <Link to={''}>
-                                Condiciones
+                                {t('app.Condiciones')}
                             </Link>
 
                         </div>
@@ -61,14 +55,12 @@ export const HeaderPage = () => {
                                 :
                                 <Link to={'/auth/login'}>
                                 <Button colorPalette={'bg'} bg={'ternary.500'}>
-                                    <MdLogin /> Login
+                                    <MdLogin /> {t('app.Iniciar Session')}
                                 </Button>
                             </Link>
                             }
                             
-                            <ButtonPrimary>
-                                <MdOutlinePermPhoneMsg /> Contactanos
-                            </ButtonPrimary>
+                            <ContactUs />
                         </div>
                     </div>
                 </div>

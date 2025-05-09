@@ -1,7 +1,8 @@
-import { HStack, IconButton, Pagination, Table, TableRootProps } from "@chakra-ui/react";
+import { ButtonGroup, IconButton, Pagination, Table, TableRootProps } from "@chakra-ui/react";
 import { useState } from "react";
 import { ResultTableHelperHook } from "../@types/core";
 import { LoadingTable } from "./LoadingTable";
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 type AppTableProps<T> = {
     tableHelper: ResultTableHelperHook<T>;
@@ -60,23 +61,25 @@ export function AppTable<TData>({ tableHelper, isLoading, error, data, originalP
                             </Table.Row>
                         ))}
                     </Table.Body>
-                    {/* <Table.Footer>
-                    <Table.Row>
-                        <Table.Cell />
-                    </Table.Row>
-                </Table.Footer> */}
                 </Table.Root>
+
             </Table.ScrollArea>
+
+
             <div className="mt-2">
-                <Pagination.Root
-                    count={data?.length}
+                <Pagination.Root count={data?.length}
                     pageSize={displayRows}
                     defaultPage={1}
                     page={page}
                     onPageChange={(e) => setPage(e.page)}
-                >
-                    <HStack>
-                        <Pagination.PrevTrigger />
+                    >
+                    <ButtonGroup variant="outline" size="sm">
+                        <Pagination.PrevTrigger asChild>
+                            <IconButton>
+                                <LuChevronLeft />
+                            </IconButton>
+                        </Pagination.PrevTrigger>
+
                         <Pagination.Items
                             render={(page) => (
                                 <IconButton variant={{ base: "outline", _selected: "solid" }}>
@@ -84,10 +87,14 @@ export function AppTable<TData>({ tableHelper, isLoading, error, data, originalP
                                 </IconButton>
                             )}
                         />
-                        <Pagination.NextTrigger />
-                    </HStack>
-                </Pagination.Root>
 
+                        <Pagination.NextTrigger asChild>
+                            <IconButton>
+                                <LuChevronRight />
+                            </IconButton>
+                        </Pagination.NextTrigger>
+                    </ButtonGroup>
+                </Pagination.Root>
             </div>
         </>
     );

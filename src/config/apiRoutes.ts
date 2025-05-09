@@ -7,7 +7,12 @@ export const routesApi = {
         logout: 'security/logout'
     },
     services: {
-        all: 'services'
+        all: 'services',
+        children: function(){
+            return {
+                setImage: `${this.all}/set-img/{id}`
+            };
+        }
     }
     
 };

@@ -18,6 +18,13 @@ export const webRoutes = {
         title: 'Home',
         uri(){
             return this.path;
+        },
+        children: {
+            services: {
+                path: 'services/:name',
+                title: 'Services',
+                
+            }
         }
     },
     login: {

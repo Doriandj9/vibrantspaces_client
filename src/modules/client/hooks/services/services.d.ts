@@ -1,4 +1,4 @@
-import { ResponseSuccessApi } from "@/core/@types/core";
+import { ResponseSuccessApi, ResponseUpdateApi } from "@/core/@types/core";
 
 interface TranslationValues {
     title: string;
@@ -33,14 +33,24 @@ interface TransTranslations {
 }
 
 interface ServiceData {
+    id: number;
     title: string;
     header: string;
     subheader: string;
     list: ListTranslations;
     trans: TransTranslations;
+    picture?: string;
 }
 
+export type PictureForm = {
+    picture: File ;
+};
 
 export type GetServices = {
     (): Promise<ResponseSuccessApi<ServiceData[]>['data']>;
+};
+
+
+export type SetPictureService = {
+    (id: string,data: PictureForm): Promise<ResponseUpdateApi<ServiceData>['data']>;
 };

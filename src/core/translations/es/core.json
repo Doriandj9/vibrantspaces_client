@@ -3,5 +3,19 @@
     "language": {
         "English": "Ingles",
         "Spanish": "Español"
+    },
+     "app": {
+        "Services": "Servicios",
+        "Nosotros": "Nosotros",
+        "Privacidad": "Privacidad",
+        "Condiciones": "Condiciones",
+        "Nuestros": "Nuestros",
+        "Contactenos": "Contáctenos",
+        "copy": "© Vibrant Spaces. Todos los derecho reservados 2025",
+        "Iniciar Session": "Iniciar Sesión",
+        "FRESH VIBES, NATURAL TOUCH": "VIBRAS FRESCAS, TOQUE NATURAL",
+        "Home": "Inicio",
+        "Enviar Mensaje": "Enviar Mensaje",
+        "regresar": "Regresar"
     }
 }

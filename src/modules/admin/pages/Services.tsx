@@ -1,12 +1,18 @@
 import { AppTable } from "@/core/components/AppTable";
-import { useGetServices } from "@/modules/client/hooks/services/hook";
-import { ServiceData } from "@/modules/client/hooks/services/services";
+import { useGetServices, useSetPictureService } from "@/modules/client/hooks/services/hook";
+import { PictureForm, ServiceData } from "@/modules/client/hooks/services/services";
 import { IconButton } from "@chakra-ui/react";
 import { useTableServicesHelper } from "./TServicesHelper";
 import { AiOutlinePicture } from "react-icons/ai";
 import { Button, CloseButton, Dialog, Portal } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { AppFileUpload } from "@/core/components/AppFileUpload";
+import { usePictureSchema } from "@/modules/client/validations/pictureSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ButtonPrimary } from "@/core/components/ButtonPrimary";
+import { toast } from "sonner";
+import { AppLoading } from "@/core/components/AppLoading";
+import { useState } from "react";
 
 
 export const Services = () => {
@@ -29,7 +35,7 @@ export const Services = () => {
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
                     <span className="container-fluid text-lg font-bold">Servicios</span>
                 </div>
-                <div className="app-container-fade w-full min-h-60 mt-4">
+                <div className="app-container-fade w-full min-h-60 mt-4 p-2">
 
                     <AppTable data={data ?? []} error={error} isLoading={isLoading} tableHelper={tableHelper} />
                 </div>
@@ -45,11 +51,30 @@ type AddPictureProps = {
 };
 
 export const AddPicture: React.FC<AddPictureProps> = ({ service }) => {
+    const { set } = useSetPictureService(service.id);
+    const [open,setOpen] = useState(false);
+    const schema = usePictureSchema();
+    const { control, handleSubmit, reset } = useForm<PictureForm>({
+        resolver: zodResolver(schema)
+    });
 
-    const {control, watch} = useForm();
-    console.log(watch());
+    const onSave: SubmitHandler<PictureForm> = (data) => {
+        set.mutate(data,{
+            onSuccess(){
+                reset({
+                    picture: undefined
+                });
+
+                setOpen(false);
+            }
+        });
+    };
+
+  
     return (
-        <Dialog.Root>
+        <>
+        <AppLoading loading={set.isPending } />
+        <Dialog.Root open={open} onOpenChange={({open}) => setOpen(open)}>
             <Dialog.Trigger asChild>
                 <IconButton colorPalette={'green'}>
                     <AiOutlinePicture />
@@ -64,17 +89,35 @@ export const AddPicture: React.FC<AddPictureProps> = ({ service }) => {
                         </Dialog.Header>
                         <Dialog.Body>
                             <AppFileUpload
-                            control={control}
-                            name="file"
-                            label="Cambio"
-                            
+                                control={control}
+                                name="picture"
+                                label="Suba una imagen"
+                                accept={'image/*'}
+                                verifyFiles={(file) => {
+                                    const maxSizeInMB = 50;
+                                    const maxSizeInBytes = maxSizeInMB * 1024 * 1024; // 50 MB
+
+                                    if (!file.type.startsWith("image/")) {
+                                        toast.error('Solo se pueden subir archivos de imagen', {position: 'top-center'});
+                                        return false;
+                                    }
+
+                                    if (file.size > maxSizeInBytes) {
+                                        toast.error('No se puede subir una imagen que pese más de 50 MB',{position: 'top-center'});
+                                        return false;
+                                    }
+
+                                    return true;
+                                }}
                             />
                         </Dialog.Body>
                         <Dialog.Footer>
                             <Dialog.ActionTrigger asChild>
-                                <Button variant="outline">Cancel</Button>
+                                <Button variant="outline">Regresar</Button>
                             </Dialog.ActionTrigger>
-                            <Button>Save</Button>
+                            <ButtonPrimary onClick={handleSubmit(onSave)}>
+                                Guardar Cambios
+                            </ButtonPrimary>
                         </Dialog.Footer>
                         <Dialog.CloseTrigger asChild>
                             <CloseButton size="sm" />
@@ -83,5 +126,7 @@ export const AddPicture: React.FC<AddPictureProps> = ({ service }) => {
                 </Dialog.Positioner>
             </Portal>
         </Dialog.Root>
+        </>
+
     );
 };

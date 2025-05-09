@@ -4,6 +4,20 @@ interface Resources {
     "language": {
       "English": "English",
       "Spanish": "Spanish"
+    },
+    "app": {
+      "Services": "Services",
+      "Nosotros": "About Us",
+      "Privacidad": "Privacy",
+      "Condiciones": "Terms",
+      "Nuestros": "Our",
+      "Contactenos": "Contact Us",
+      "copy": "© Vibrant Spaces. All rights reserved 2025",
+      "Iniciar Session": "Log In",
+      "FRESH VIBES, NATURAL TOUCH": "FRESH VIBES, NATURAL TOUCH",
+      "Home": "Home",
+      "Enviar Mensaje": "Send Message",
+      "regresar": "Regresar"
     }
   }
 }

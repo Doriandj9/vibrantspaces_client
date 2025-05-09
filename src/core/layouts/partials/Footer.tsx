@@ -8,8 +8,8 @@ export const Footer = () => {
 
     return (
         <>
-        <div className='mt-20'>
-            <div className="h-24 bg-primary text-white w-full">
+        <div className='mt-20 flex-grow flex  items-stretch '>
+            <div className="h-24 bg-primary text-white w-full self-end">
                 <div className="flex justify-between items-center h-full w-full px-4">
                     <div>
                         &copy; Vibrant Spaces. Todos los derecho reservados 2025
