@@ -30,8 +30,20 @@ const customConfig = defineConfig({
             800: { value: "#244235" },
             900: { value: "#183024" },
             950: { value: "#0c1b13" }
+          },
+          ternary: {
+            50:  { value: "#eff5e6" },
+            100: { value: "#d8e7be" },
+            200: { value: "#bfdc8f" },
+            300: { value: "#a5cf5f" },
+            400: { value: "#8cc438" },
+            500: { value: "#79a03e" }, // Color base
+            600: { value: "#638333" },
+            700: { value: "#4e6729" },
+            800: { value: "#394b1e" },
+            900: { value: "#243014" },
+            950: { value: "#111707" }
           }
-          
       },
     },
   },

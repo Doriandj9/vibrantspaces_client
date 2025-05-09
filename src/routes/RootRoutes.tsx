@@ -6,6 +6,10 @@ import AuthPages from "./AuthPages";
 import AuthAdmin from "./AuthAdmin";
 import { NotFound } from "@/core/components/NotFound";
 import { HomePage } from "@/modules/client/pages/Home/HomePage";
+import { Login } from "@/modules/client/pages/Home/LoginApp";
+import { DashboardAdmin } from "@/modules/admin/pages/Dashboard";
+import { HomeAdmin } from "@/modules/admin/pages/Home";
+import { Services } from "@/modules/admin/pages/Services";
 
 
 const RootRoutes = () => {
@@ -13,12 +17,11 @@ const RootRoutes = () => {
     <>
       <CustomRoutes>
         <Route path={webRoutes.home.path} element={<HomePage />} />
-       
+
 
 
         <Route element={<MiddlewareLogin />}>
-          {/* <Route path={webRoutes.login.path} element={<Login />} /> */}
-          
+          <Route path={webRoutes.login.path} element={<Login />} />
         </Route>
 
         <Route element={<AuthPages />}>
@@ -34,12 +37,11 @@ const RootRoutes = () => {
         {/* routes for admin */}
 
         <Route element={<AuthAdmin />}>
-          {/* <Route path={webRoutes.dashboard_admin.path} element={<DashboardAdmin />}>
-            <Route element={<StatisticsAdmin />} index/>
-            <Route element={<StatisticsAdmin />} path={webRoutes.dashboard_admin.children.statistics.path} />
-            <Route element={<Categories />} path={webRoutes.dashboard_admin.children.categories.path} />
-            <Route element={<Users />} path={webRoutes.dashboard_admin.children.users.path} />
-          </Route> */}
+          <Route path={webRoutes.admin.path} element={<DashboardAdmin />}>
+            <Route index element={<HomeAdmin />} />
+            <Route path={webRoutes.admin.children.home.path} element={<HomeAdmin />} />
+            <Route path={webRoutes.admin.children.services.path} element={<Services />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />

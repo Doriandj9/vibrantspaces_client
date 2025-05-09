@@ -2,6 +2,71 @@ interface Resources {
   "client": {
     "paragraphs": {
       "initial": "Vibrant Essences LLC is a company dedicated to the comprehensive cleaning of residential properties in the state of Florida. Our mission is to provide efficient and reliable solutions that guarantee customer satisfaction."
+    },
+    "validations": {
+      "messages": {
+        "email-required": "Email field is required",
+        "password-required": "The password field is required",
+        "email-type": "The email is invalid",
+        "full-name-required": "The first and last names field is required",
+        "full-name-min": "Enter a minimum of 3 characters",
+        "birthday-required": "The birthday field is required",
+        "phone-required": "The cell phone number field is required",
+        "nan-type-post": "Error no post type was selected",
+        "nan-img-post": "No image was selected for publication",
+        "nan-payload-post": "You cannot post empty content",
+        "min-length": "Enter a minimum of {count} characters",
+        "max-length": "Enter a maximum of {count} characters",
+        "special-characters": "Enter at least {count} special characters",
+        "letters-uppercase": "Enter at least {count} uppercase letters",
+        "number-count": "Enter at least {count} numbers",
+        "one-img-post": "You cannot drag more than one image per post",
+        "empty-img-post": "I don't drag an image",
+        "not-img-post": "The dragged file is not an image",
+        "unknown-img-post": "There was an error when trying to upload the file",
+        "not-selected-img": "I don't select an image",
+        "password-type": "The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+        "password-confirm": "The password and confirmation password do not match."
+      }
+    },
+    "login": {
+      "header": {
+        "title": "Log in to your account",
+        "aside": "Start making your dreams come true"
+      },
+      "inputs": {
+        "email": {
+          "placeholder": "Enter your email"
+        },
+        "password": {
+          "placeholder": "Enter your password"
+        }
+      },
+      "buttons": {
+        "login": "Continue with email",
+        "google": "Continue with Google",
+        "facebook": "Continue with Facebook"
+      },
+      "labels": {
+        "not-account": "You don't have a shuk account?",
+        "register-account": "Register here",
+        "problems-login": "Having issues?",
+        "contact": "Contact us",
+        "or": "or",
+        "add": "Add",
+        "recovery-password-title": "Recover your password",
+        "notify-forward-password": "We’ve sent a password reset link to your email. <br> You have one hour to complete the process before it expires."
+      }
+    },
+    "mobile": {
+      "menu": {
+        "configuration": "Configuration",
+        "login": "Login",
+        "logout": "Log Out",
+        "account-setting": "Account setting",
+        "administration": "Administration",
+        "notifications": "Notifications"
+      }
     }
   }
 }

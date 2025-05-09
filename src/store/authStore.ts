@@ -74,8 +74,8 @@ export const useAuthStore = create<AuthProps>()((set) => {
             return {
                 user: null,
                 isLogin: false,
+                isAdmin: false,
                 token: null,
-                isProvider: false
             };
         }),
         isAdmin: user?.rol?.name === 'Admin'

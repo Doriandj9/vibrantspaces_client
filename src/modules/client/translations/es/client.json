@@ -1,5 +1,71 @@
 {
     "paragraphs": {
         "initial" : "Vibrant Essences LLC es una empresa dedicada a la limpieza integral de propiedades residenciales en el estado de Florida. Nuestra misión es proporcionar soluciones eficientes y confiables que garanticen la satisfacción del cliente."
+    },
+    "validations": {
+        "messages": {
+            "email-required": "Se requiere el campo correo electrónico",
+            "password-required": "Se requiere el campo contraseña",
+            "email-type": "El correo electrónico es invalido",
+            "full-name-required": "El campo de nombre y apellido es obligatorio",
+            "full-name-min": "Ingrese un mínimo de 3 caracteres",
+            "birthday-required": "El campo de cumpleaños es obligatorio",
+            "phone-required": "El campo numero de celular es obligatorio",
+            "nan-type-post": "Error no se selecciono un tipo de publicación",
+            "nan-img-post": "No se selecciono una imagen para la publicación",
+            "nan-payload-post": "No se pude publicar un contenido vació",
+            "min-length": "Ingresar un mínimo de {count} caracteres",
+            "max-length": "Ingresar un máximo de {count} caracteres",
+            "special-characters": "Introduzca al menos {count} caracteres especiales",
+            "letters-uppercase": "Ingrese al menos {count} letras mayúsculas",
+            "number-count": "Introduzca al menos {count} números",
+            "one-img-post": "No puede arrastrar mas de una imagen por publicación",
+            "empty-img-post": "No arrastro una imagen",
+            "not-img-post": "El archivo arrastrado no es una imagen",
+            "unknown-img-post": "Existe un error al intentar subir el archivo",
+            "not-selected-img": "No selecciono una imagen",
+            "password-type": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.",
+            "password-confirm": "La contraseña y la contraseña de confirmación no coinciden."
+        }
+    },
+    "login": {
+        "header": {
+            "title": "Inicia sesión en tu cuenta",
+            "aside": "Empieza a hacer realidad tus sueños"
+        },
+        "inputs": {
+            "email": {
+                "placeholder": "Ingresa tu correo electrónico"
+            },
+            "password": {
+                "placeholder": "Ingresa tu contraseña"
+            }
+        },
+        "buttons": {
+            "login": "Continuar con el correo",
+            "google": "Continuar con Google",
+            "facebook": "Continuar con Facebook"
+        },
+        "labels": {
+            "not-account": "¿No tienes una cuenta shuk?",
+            "register-account": "Regístrate aquí",
+            "problems-login": "¿Tienes problemas?",
+            "contact": "Contacta con nosotros",
+            "or": "o",
+            "add": "Agregar",
+            "recovery-password-title": "Recupera tu contraseña",
+            "notify-forward-password": "Hemos enviado un enlace para restablecer tu contraseña a tu correo electrónico. <br> Tienes una hora para completar el proceso antes de que expire."
+
+        }
+    },
+    "mobile": {
+        "menu": {
+            "configuration": "Configuración",
+            "login": "Iniciar Sesión",
+            "logout": "Cerrar Sesión",
+            "account-settings": "Configuración de cuenta",
+            "administration": "Administración",
+            "notifications": "Notificaciones"
+        }
     }
 }

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import TopBarProgress from "react-topbar-progress-indicator";
-import { Toaster } from "sonner";
+import { setTitleApp } from "@/core/utilities/url";
 
 TopBarProgress.config({
   barColors: {
@@ -22,6 +22,7 @@ export const CustomRoutes: React.FC<Children> = ({ children }) => {
 
   useEffect(() => {
     setPrevLoc(location.pathname);
+    setTitleApp(location.pathname);
     if (location.pathname !== prevLoc) {
       setProgress(true);
     }
@@ -34,7 +35,6 @@ export const CustomRoutes: React.FC<Children> = ({ children }) => {
   return (
     <>
       {progress && <TopBarProgress />}
-      <Toaster richColors />
       <ErrorBoundary>
         <Routes>{children}</Routes>
       </ErrorBoundary>

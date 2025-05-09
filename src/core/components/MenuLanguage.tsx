@@ -16,8 +16,8 @@ export const MenuLanguage = () => {
     return (
         <Menu.Root>
             <Menu.Trigger asChild>
-                <IconButton position={'relative'}>
-                    <Badge colorPalette={'bg'} bg={'secondary.500'}
+                <IconButton position={'relative'} colorPalette={'bg'} bg={'secondary.500'}>
+                    <Badge colorPalette={'bg'} bg={'primary.500'}
                         position={'absolute'}
                         top={'-3.5'}
                         right={'-1.5'}
@@ -30,7 +30,7 @@ export const MenuLanguage = () => {
             </Menu.Trigger>
             <Portal>
                 <Menu.Positioner>
-                    <Menu.Content bg={'gray.800'} color={'white'}>
+                    <Menu.Content bg={'secondary.500'} color={'white'}>
                         <Menu.Item value="lang-en"
                         onClick={() => handleChangeLang('en')}
                         color={'white'}
