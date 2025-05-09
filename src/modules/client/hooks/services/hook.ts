@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getServices, setPictureService } from "./queries";
+import { getService, getServices, setPictureService } from "./queries";
 import { PictureForm } from "./services";
 
 
@@ -12,6 +12,18 @@ export const useGetServices = () => {
 
     return { ...hook };
 };
+
+export const useGetService = (id?: string | number | null) => {
+    const hook = useQuery({
+        queryKey: ['services', id],
+        queryFn: () => getService(String(id)),
+        refetchInterval: (1000 * 30),
+        enabled: !!id
+    });
+
+    return { ...hook };
+};
+
 
 export const useSetPictureService = (id?: string | number) => {
     const client= useQueryClient();

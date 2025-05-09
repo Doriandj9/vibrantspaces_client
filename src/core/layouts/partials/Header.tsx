@@ -21,7 +21,9 @@ export const HeaderPage = () => {
                 <div className="w-11/12 rounded-3xl h-20 p-4 m-auto bg-white shadow-lg">
                     <div className="flex justify-between items-center h-full">
                         <div>
+                            <Link to={'/'}>
                             <img className='h-16 rounded-full' src={logo} alt="LOGO VIBRANT SPACE" />
+                            </Link>
                         </div>
 
                         <div className='w-96 text-slate-800 justify-around gap-2 hidden md:flex'>

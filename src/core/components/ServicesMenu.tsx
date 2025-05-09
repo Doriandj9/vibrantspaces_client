@@ -28,7 +28,7 @@ export const ServicesMenu = () => {
                             {data?.map((item) => (
                                 <div className="">
                                     <Link 
-                                    to={webRoutes.home.children.services.path.replace(':name', item.trans.translations[lang].title) + `?i=${item.id}`}
+                                    to={webRoutes.home.children.services.uri().replace(':name', item.trans.translations[lang].title) + `?i=${item.id}`}
                                     className="block p-2 item-link"
                                     >
                                         { item.trans.translations[lang].title }

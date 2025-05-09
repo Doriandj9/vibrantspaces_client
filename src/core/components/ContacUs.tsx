@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { MdPhoneIphone } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { AppTextarea } from "./AppTextarea";
-export const ContactUs = () => {
+export const ContactUs = ({fullWidth}: {fullWidth?: boolean}) => {
     const [t] = useTranslation('core');
 
     const { control } = useForm();
@@ -15,7 +15,7 @@ export const ContactUs = () => {
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
-                <ButtonPrimary>
+                <ButtonPrimary width={fullWidth ? 'full' : 'auto'}>
                     <MdOutlinePermPhoneMsg /> {t('app.Contactenos')}
                 </ButtonPrimary>
             </Dialog.Trigger>

@@ -11,7 +11,7 @@ export const AppLayout: React.FC<Children> = ({ children }) => {
         <>
             <div className="bg-white min-h-screen flex flex-col">
                 <HeaderPage />
-                <div className="pt-28 text-gray-900">
+                <div className="pt-28 text-gray-900 flex-grow">
                     {children}
                 </div>
                 <Footer />

@@ -54,3 +54,8 @@ export type GetServices = {
 export type SetPictureService = {
     (id: string,data: PictureForm): Promise<ResponseUpdateApi<ServiceData>['data']>;
 };
+
+
+export type GetService = {
+    (id: string): Promise<ResponseSuccessApi<ServiceData>['data']>;
+};

@@ -10,6 +10,7 @@ import { Login } from "@/modules/client/pages/Home/LoginApp";
 import { DashboardAdmin } from "@/modules/admin/pages/Dashboard";
 import { HomeAdmin } from "@/modules/admin/pages/Home";
 import { Services } from "@/modules/admin/pages/Services";
+import { ServicesPage } from "@/modules/client/pages/Home/ServicesPage";
 
 
 const RootRoutes = () => {
@@ -17,6 +18,8 @@ const RootRoutes = () => {
     <>
       <CustomRoutes>
         <Route path={webRoutes.home.path} element={<HomePage />} />
+        <Route path={webRoutes.home.children.services.path} element={<ServicesPage />} />
+
 
 
 

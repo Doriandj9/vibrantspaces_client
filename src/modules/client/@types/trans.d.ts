@@ -67,6 +67,21 @@ interface Resources {
         "administration": "Administration",
         "notifications": "Notifications"
       }
+    },
+    "form-services-contact": {
+      "nombres": "Name",
+      "número_de_contacto": "Contact number",
+      "correo": "Email",
+      "preferencia_contacto": "Preferred contact method: Call or SMS",
+      "servicio_necesario": "Select the service you need",
+      "descripción_área_limpieza": "Description of the cleaning area",
+      "metros cuadrados": "Square meters",
+      "dormitorios": "Number of bedrooms",
+      "baños": "Number of bathrooms",
+      "cocinas": "Number of kitchens",
+      "patio": "Number of patios",
+      "escaleras": "Number of stairs",
+      "salar": "Number of living rooms"
     }
   }
 }

@@ -23,7 +23,9 @@ export const webRoutes = {
             services: {
                 path: 'services/:name',
                 title: 'Services',
-                
+                uri(){
+                    return `/${this.path}`;
+                }
             }
         }
     },

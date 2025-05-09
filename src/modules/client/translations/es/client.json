@@ -67,5 +67,20 @@
             "administration": "Administración",
             "notifications": "Notificaciones"
         }
+    },
+    "form-services-contact": {
+        "nombres": "Nombres",
+        "número_de_contacto": "Número de contacto",
+        "correo": "Correo",
+        "preferencia_contacto": "¿Cómo le gustaría que se contacten? Llamada o SMS",
+        "servicio_necesario": "Elija qué servicio necesita",
+        "descripción_área_limpieza": "Descripción del área de limpieza",
+        "metros cuadrados": "Metros cuadrados",
+        "dormitorios": "Número de dormitorios",
+        "baños": "Número de baños",
+        "cocinas": "Número de cocinas",
+        "patio": "Número de patios",
+        "escaleras": "Número de escaleras",
+        "salar": "Número de Salar"
     }
 }
