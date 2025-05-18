@@ -33,7 +33,7 @@ export const MenuMobile = () => {
         <>
             {
                 isMenuMobile &&
-                <nav className="absolute flex items-center p-4 bg-white rounded-md shadow-lg dark:bg-darker top-16 inset-x-4 md:hidden">
+                <nav className="absolute flex items-center p-4 bg-white rounded-md shadow-lg dark:bg-darker top-16 inset-x-4 md:hidden z-30">
                     <div className="space-x-2">
                         {/* <Notify /> */}
                         <Search />

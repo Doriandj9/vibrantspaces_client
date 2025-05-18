@@ -29,6 +29,13 @@ export const webRoutes = {
             }
         }
     },
+    privacy:{
+        path: '/privacy',
+        title: 'Privacy Policy',
+        uri(){
+            return this.path;
+        }
+    },
     login: {
         path: '/auth/login',
         title: 'Login',
@@ -50,6 +57,13 @@ export const webRoutes = {
             services: {
                 path: 'services',
                 title: 'Services',
+                uri(){
+                    return `/admin/${this.path}`;
+                }
+            },
+            requests: {
+                path: 'requests',
+                title: 'Requests for Services',
                 uri(){
                     return `/admin/${this.path}`;
                 }

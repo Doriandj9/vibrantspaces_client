@@ -1,8 +1,9 @@
 import { webRoutes } from "@/config/webRoutes";
 import { NavbarContext } from "@/core/contexts/LayoutContexs";
-import { AccordionItem,AccordionRoot } from "@chakra-ui/react";
+import { AccordionItem, AccordionRoot } from "@chakra-ui/react";
 import { useContext } from "react";
 import { FiFolderPlus } from "react-icons/fi";
+import { VscGitPullRequestNewChanges } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 
 
@@ -22,7 +23,13 @@ export const NavbarMobile = () => {
                                     <FiFolderPlus className="w-5 h-5" />   Servicios
                                 </NavLink>
                             </AccordionItem>
-
+                            <AccordionItem value={'2'}>
+                                <NavLink to={webRoutes.admin.children.requests.path}
+                                    className={({ isActive }) => `navbar-item ${isActive ? 'navbar-item-active' : ''}`}
+                                >
+                                    <VscGitPullRequestNewChanges className="w-5 h-5" />   Solicitudes
+                                </NavLink>
+                            </AccordionItem>
                         </AccordionRoot>
                     </nav>
                 </div>

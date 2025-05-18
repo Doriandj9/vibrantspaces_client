@@ -23,7 +23,7 @@
       
    }
    .bg-img {
-    background-image: url('./src/assets/img/sala1.png');
+    background-image: url('/sala1.png');
    }
 
    .navbar-item{
@@ -47,4 +47,7 @@
     content: '- ';
   }
 
+  #editor-content ol, ul {
+    @apply ml-6;
+  }
 }

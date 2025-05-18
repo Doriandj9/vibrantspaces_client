@@ -15,3 +15,14 @@ export type Auth = {
 export type Logout = {
     (): Promise<ResponseSuccessApi<string>['data']>;
 };
+
+export type AccountChangesForm = {
+    name: string;
+    email: string;
+    password?: string;
+    repeat_password?: string;
+};
+
+export type PutAccountChanges = {
+    (data: AccountChangesForm, id: string): Promise<ResponseSuccessApi<ResponseUserProps>['data']>;
+}

@@ -1,10 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { LoginForm } from "../../validations/loginSchema";
-import { auth as authFn, logoutFn } from "./queries";
+import { accountChanges, auth as authFn, logoutFn } from "./queries";
 import { showError } from "@/core/utilities/errors";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "@/store/authStore";
 import { webRoutes } from "@/config/webRoutes";
+import { AccountChangesForm } from "./auth";
 
 
 
@@ -48,3 +49,17 @@ export const useLogout = () => {
 
     return {logout};
 };
+
+
+
+
+export const useAccountChangesPut = (id?: string | number) => {
+
+    const put = useMutation({
+        mutationKey: ['auth','update'],
+        mutationFn: (data: AccountChangesForm) => accountChanges(data, String(id)),
+    });
+
+    return {put};
+};
+

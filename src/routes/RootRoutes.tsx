@@ -11,6 +11,8 @@ import { DashboardAdmin } from "@/modules/admin/pages/Dashboard";
 import { HomeAdmin } from "@/modules/admin/pages/Home";
 import { Services } from "@/modules/admin/pages/Services";
 import { ServicesPage } from "@/modules/client/pages/Home/ServicesPage";
+import { DataServicesPage } from "@/modules/admin/pages/DataServices/DataServices";
+import { Privacy } from "@/modules/client/pages/Home/Privacy";
 
 
 const RootRoutes = () => {
@@ -18,6 +20,7 @@ const RootRoutes = () => {
     <>
       <CustomRoutes>
         <Route path={webRoutes.home.path} element={<HomePage />} />
+        <Route path={webRoutes.privacy.path} element={<Privacy />} />
         <Route path={webRoutes.home.children.services.path} element={<ServicesPage />} />
 
 
@@ -44,6 +47,7 @@ const RootRoutes = () => {
             <Route index element={<HomeAdmin />} />
             <Route path={webRoutes.admin.children.home.path} element={<HomeAdmin />} />
             <Route path={webRoutes.admin.children.services.path} element={<Services />} />
+            <Route path={webRoutes.admin.children.requests.path} element={<DataServicesPage />} />
           </Route>
         </Route>
 

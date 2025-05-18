@@ -19,6 +19,7 @@ export const ServicesShowList = () => {
 
                 {services?.map((item, index) => (
                     <Link
+                        key={item.id}
                         to={webRoutes.home.children.services.path.replace(':name', item.trans.translations[lang].title) + `?i=${item.id}`}>
                         <article className="relative w-96 lg:w-[28rem]  rounded-2xl p-2 h-40">
                             <div className="flex justify-center items-center absolute top-0 left-0 w-full h-full z-30 rounded-2xl shadow-lg">

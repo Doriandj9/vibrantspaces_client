@@ -17,7 +17,7 @@ export const HeaderPage = () => {
 
     return (
         <>
-            <div className="fixed top-5 left-0 w-full flex justify-center items-center z-10">
+            <div className="fixed top-5 left-0 w-full flex justify-center items-center z-[90]">
                 <div className="w-11/12 rounded-3xl h-20 p-4 m-auto bg-white shadow-lg">
                     <div className="flex justify-between items-center h-full">
                         <div>
@@ -31,11 +31,8 @@ export const HeaderPage = () => {
                                 {t('app.Home')}
                             </Link>
                             <ServicesMenu />
-                            <Link to={''}>
+                            <Link to={webRoutes.privacy.path}>
                                 {t('app.Privacidad')}
-                            </Link>
-                            <Link to={''}>
-                                {t('app.Condiciones')}
                             </Link>
 
                         </div>

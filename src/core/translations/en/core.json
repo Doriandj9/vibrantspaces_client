@@ -11,11 +11,13 @@
         "Condiciones": "Terms",
         "Nuestros": "Our",
         "Contactenos": "Contact Us",
-        "copy": "© Vibrant Spaces. All rights reserved 2025",
+        "copy": "© Vibran Essences LLC. All rights reserved 2025",
         "Iniciar Session": "Log In",
         "FRESH VIBES, NATURAL TOUCH": "FRESH VIBES, NATURAL TOUCH",
         "Home": "Home",
         "Enviar Mensaje": "Send Message",
-        "regresar": "Regresar"
+        "regresar": "Return",
+        "settings": "Settings",
+        "success-message": "Your message has been sent successfully."
     }
 }

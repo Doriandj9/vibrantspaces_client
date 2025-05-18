@@ -1,6 +1,6 @@
 {
     "paragraphs": {
-        "initial" : "Vibrant Essences LLC es una empresa dedicada a la limpieza integral de propiedades residenciales en el estado de Florida. Nuestra misión es proporcionar soluciones eficientes y confiables que garanticen la satisfacción del cliente."
+        "initial": "Vibrant Essences LLC es una empresa dedicada a la limpieza integral de propiedades residenciales en el estado de Florida. Nuestra misión es proporcionar soluciones eficientes y confiables que garanticen la satisfacción del cliente."
     },
     "validations": {
         "messages": {
@@ -25,7 +25,16 @@
             "unknown-img-post": "Existe un error al intentar subir el archivo",
             "not-selected-img": "No selecciono una imagen",
             "password-type": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.",
-            "password-confirm": "La contraseña y la contraseña de confirmación no coinciden."
+            "password-confirm": "La contraseña y la contraseña de confirmación no coinciden.",
+            "Ingrese su nombre": "Ingrese su nombre",
+            "Ingrese su numero de contacto": "Ingrese su numero de contacto",
+            "Ingrese su dirección": "Ingrese su dirección",
+            "Seleccione su forma de contacto": "Seleccione su forma de contacto",
+            "Ingrese la descripción de su area de limpieza": "Ingrese la descripción de su area de limpieza",
+            "Es un campo requerido": "Es un campo requerido",
+            "No es un numero valido": "No es un numero valido",
+            "No puede ser un numero negativo": "No puede ser un numero negativo",
+            "Ingrese su mensaje": "Ingrese su mensaje"
         }
     },
     "login": {
@@ -35,10 +44,19 @@
         },
         "inputs": {
             "email": {
+                "label": "Correo electrónico",
                 "placeholder": "Ingresa tu correo electrónico"
             },
             "password": {
+                "label": "Contraseña",
                 "placeholder": "Ingresa tu contraseña"
+            },
+            "repeat-password": {
+                "label": "Repita su contraseña",
+                "placeholder": "Enter your password"
+            },
+            "message": {
+                "label": "Mensaje"
             }
         },
         "buttons": {
@@ -51,11 +69,12 @@
             "register-account": "Regístrate aquí",
             "problems-login": "¿Tienes problemas?",
             "contact": "Contacta con nosotros",
+            "writing": "Escríbenos",
+            "send-message": "Envíanos un mensaje",
             "or": "o",
             "add": "Agregar",
             "recovery-password-title": "Recupera tu contraseña",
             "notify-forward-password": "Hemos enviado un enlace para restablecer tu contraseña a tu correo electrónico. <br> Tienes una hora para completar el proceso antes de que expire."
-
         }
     },
     "mobile": {
@@ -63,24 +82,75 @@
             "configuration": "Configuración",
             "login": "Iniciar Sesión",
             "logout": "Cerrar Sesión",
-            "account-settings": "Configuración de cuenta",
+            "account-setting": "Configuración de cuenta",
             "administration": "Administración",
             "notifications": "Notificaciones"
         }
     },
     "form-services-contact": {
+        "placeholder-description-area": "Área de limpieza de aproximadamente 200 m² ubicada en el sótano del edificio. Cuenta con dos baños, y un dormitorio.",
         "nombres": "Nombres",
         "número_de_contacto": "Número de contacto",
         "correo": "Correo",
-        "preferencia_contacto": "¿Cómo le gustaría que se contacten? Llamada o SMS",
+        "preferencia_contacto": "¿Cómo le gustaría que se contacten?",
         "servicio_necesario": "Elija qué servicio necesita",
         "descripción_área_limpieza": "Descripción del área de limpieza",
         "metros cuadrados": "Metros cuadrados",
-        "dormitorios": "Número de dormitorios",
-        "baños": "Número de baños",
+        "dormitorios": "Dormitorios",
+        "baños": "Baños",
         "cocinas": "Número de cocinas",
-        "patio": "Número de patios",
+        "patio": "Patios",
         "escaleras": "Número de escaleras",
-        "salar": "Número de Salar"
+        "salar": "Número de Salar",
+        "direccion": "Dirección"
+    },
+    "privacy": { 
+        "Privacy Policy for Vibrant Essences LLC": "Política de Privacidad de Vibrant Essences LLC",
+        "1 paragraph": "Esta Política de Privacidad describe cómo Vibrant Essences LLC (\"nosotros\", \"nos\" o \"nuestro\") recopila, utiliza y comparte información personal de los usuarios que visitan nuestro sitio web, https://vibrantspacesfl.com/ (el \"Sitio Web\").",
+        "ul1 Information We Collect": "Información que Recopilamos",
+        "ul1 header": "Podemos recopilar los siguientes tipos de información de usted:",
+        "ul1 list1": "<strong>Información de Identificación Personal (IIP):</strong> Esto incluye información que puede usarse para identificarle, como su nombre, dirección de correo electrónico, número de teléfono y cualquier otra información que proporcione voluntariamente a través de formularios de contacto, solicitudes de cotización u otras funciones interactivas en nuestro Sitio Web. Si programa servicios o realiza pagos a través del Sitio Web en el futuro, esto también puede incluir su dirección e información de pago.",
+        "ul1 list2": "<strong>Información No Personalmente Identificable (No-IIP):</strong> Esto incluye información que no le identifica directamente, como su dirección IP, tipo de navegador, sistema operativo, sitio web de referencia, páginas que visitó en nuestro Sitio Web y otro comportamiento de navegación. Podemos recopilar esta información a través de cookies, balizas web, registros del servidor y otras tecnologías de seguimiento.",
+        "ul2": "¿Cómo Recopilamos la Información?",
+        "ul2 header": "Recopilamos información de las siguientes maneras:",
+        "ul2 list1": "<strong>Directamente de Usted:</strong> Cuando completa formularios de contacto, solicita una cotización, se suscribe a nuestro boletín (si se ofrece) o se comunica con nosotros a través de nuestro Sitio Web.",
+        "ul2 list2": "<strong>Automáticamente:</strong> Mientras navega por nuestro Sitio Web, podemos recopilar automáticamente cierta información a través de cookies y otras tecnologías de seguimiento.",
+        "ul3 Use of Your Information": "Uso de Su Información:",
+        "ul3 header": "Podemos utilizar la información que recopilamos para diversos fines, incluyendo:",
+        "ul3 list1": "Para responder a sus consultas y brindar atención al cliente.",
+        "ul3 list2": "Para procesar sus solicitudes de cotizaciones o servicios.",
+        "ul3 list3": "Para programar y administrar sus citas de limpieza de la casa (si corresponde a través del Sitio Web).",
+        "ul3 list4": "Para enviarle comunicaciones relacionadas con el servicio.",
+        "ul3 list5": "Para mejorar nuestro Sitio Web y servicios en función de las interacciones y comentarios de los usuarios.",
+        "ul3 list6": "Para enviarle materiales de marketing y promocionales (si ha optado por recibir dichas comunicaciones), con opciones claras para optar por no participar.",
+        "ul3 list7": "Para proteger la seguridad e integridad de nuestro Sitio Web.",
+        "ul3 list8": "Para cumplir con las obligaciones legales.",
+        "ul4 Disclosure of Your Information": "Divulgación de Su Información:",
+        "ul4 header": "Podemos compartir su información con terceros en las siguientes circunstancias:",
+        "ul4 list1": "Proveedores de Servicios: Podemos compartir información con proveedores externos que nos ayudan a operar nuestro Sitio Web, brindar servicios, procesar pagos (si corresponde), enviar correos electrónicos o realizar otras operaciones comerciales. Estos proveedores de servicios generalmente están obligados contractualmente a proteger su información.",
+        "ul4 list2": "Cumplimiento Legal: Podemos divulgar su información si así lo exige la ley, una orden judicial u otro proceso legal, o si creemos que es necesario para proteger nuestros derechos, propiedad o seguridad, o los derechos, propiedad o seguridad de otros.",
+        "ul4 list3": "Transferencias Comerciales: En caso de fusión, adquisición o venta de la totalidad o una parte de nuestros activos, su información puede transferirse como parte de la transacción. Se le notificará a través de un aviso destacado en nuestro Sitio Web sobre cualquier cambio de propiedad o control de su información personal.",
+        "ul4 list4": "Con Su Consentimiento: Podemos compartir su información con terceros con su consentimiento explícito.",
+        "ul4 list5": "Datos Agregados o Anonimizados: Podemos compartir datos agregados o anonimizados que no le identifican personalmente con terceros para diversos fines, como análisis y marketing.",
+        "ul5 Cookies and Tracking Technologies": "Cookies y Tecnologías de Seguimiento:",
+        "ul5 paragraph": "Nuestro Sitio Web puede utilizar cookies (pequeños archivos de texto almacenados en su computadora) y otras tecnologías de seguimiento para mejorar su experiencia de navegación, analizar el tráfico del sitio web y personalizar el contenido. Al utilizar nuestro Sitio Web, usted consiente el uso de estas tecnologías. Puede administrar sus preferencias de cookies a través de la configuración de su navegador. Tenga en cuenta que deshabilitar las cookies puede afectar la funcionalidad de nuestro Sitio Web.",
+        "ul6 Third-Party Links": "Enlaces de Terceros:",
+        "ul6 paragraph": "Nuestro Sitio Web puede contener enlaces a sitios web de terceros. No somos responsables de las prácticas de privacidad ni del contenido de estos otros sitios web. Le recomendamos que revise las políticas de privacidad de cualquier sitio web de terceros que visite.",
+        "ul7 Children's Privacy": "Privacidad de los Niños:",
+        "ul7 paragraph": "Nuestros servicios no están dirigidos a niños menores de 13 años y no recopilamos conscientemente información personal de niños. Si usted es padre o tutor y cree que su hijo nos ha proporcionado información personal, comuníquese con nosotros de inmediato y tomaremos medidas para eliminar dicha información.",
+        "ul8 Data Security": "Seguridad de Datos:",
+        "ul8 paragraph": "Tomamos medidas razonables para proteger la información personal que recopilamos contra el acceso, uso o divulgación no autorizados. Sin embargo, ningún método de transmisión por Internet o almacenamiento electrónico es completamente seguro, y no podemos garantizar la seguridad absoluta de su información.",
+        "ul9 Data Retention": "Retención de Datos:",
+        "ul9 paragraph": "Conservaremos su información personal durante el tiempo que sea necesario para cumplir con los fines para los que fue recopilada, incluso para cumplir con los requisitos legales, contables o de informes.",
+        "ul10 Your Rights (Where Applicable Under Law)": "Sus Derechos (Donde Sea Aplicable Según la Ley):",
+        "ul10 paragraph": "Dependiendo de su ubicación y la ley aplicable, puede tener ciertos derechos con respecto a su información personal, como el derecho a acceder, corregir o eliminar su información. Comuníquese con nosotros utilizando la información a continuación si desea ejercer alguno de estos derechos. Estamos comprometidos a manejar su información de manera responsable.",
+        "ul11 Updates to this Privacy Policy": "Actualizaciones a esta Política de Privacidad:",
+        "ul11 paragraph": "Podemos actualizar esta Política de Privacidad de vez en cuando para reflejar cambios en nuestras prácticas o requisitos legales. Publicaremos cualquier cambio en esta página y actualizaremos la Política de Privacidad. Le recomendamos que revise esta Política de Privacidad periódicamente.",
+        "ul12 Contact Us": "Contáctenos:",
+        "ul12 paragraph1": "Si tiene alguna pregunta o inquietud acerca de esta Política de Privacidad o nuestras prácticas de privacidad, contáctenos en:",
+        "ul12 paragraph2": "Vibrant Essences LLC",
+        "ul12 paragraph3": "1115 Northwest 132nd Ave.",
+        "ul12 paragraph4": "Dirección de Correo Electrónico",
+        "ul12 paragraph5": "+(1) 754-457-8999"
     }
 }

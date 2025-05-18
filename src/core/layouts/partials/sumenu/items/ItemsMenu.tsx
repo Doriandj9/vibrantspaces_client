@@ -1,11 +1,13 @@
 import { Avatar as CAvatar } from "@chakra-ui/react/avatar";
-import { Badge, CloseButton, Drawer, IconButton, Menu, Portal } from "@chakra-ui/react";
+import { Badge, Button, CloseButton, Drawer, IconButton, Menu, Portal } from "@chakra-ui/react";
 import { MdKeyboardArrowDown, MdNotificationsNone, MdOutlineSettings } from "react-icons/md";
 import { useState } from "react";
 import { LogoutItem } from "./LogoutItem";
 import { useLanguageApp } from "@/store/languageStore";
 import { useTranslation } from "react-i18next";
 import { GrLanguage } from "react-icons/gr";
+import { ConfigurationModal } from "@/modules/admin/components/ConfigurationModal";
+import { IoSettingsOutline } from "react-icons/io5";
 
 
 export const Notify = () => {
@@ -13,6 +15,7 @@ export const Notify = () => {
 
     return (
         <>
+
             <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
                 <Drawer.Trigger asChild>
                     <IconButton
@@ -130,9 +133,10 @@ export const Settings = () => {
 };
 
 export const Avatar = () => {
-
+    const [open, setOpen] = useState(false);
     return (
         <>
+            <ConfigurationModal open={open} setOpen={setOpen} />
             <Menu.Root>
                 <Menu.Trigger asChild>
                     <div className="flex items-center cursor-pointer" >
@@ -147,6 +151,13 @@ export const Avatar = () => {
                         <Menu.Content>
                             <Menu.Item value="logout-Item">
                                 <LogoutItem />
+                            </Menu.Item>
+                            <Menu.Item value="settings-item">
+                                <Button variant="outline" size="sm"
+                                    onClick={() => setOpen(true)}
+                                >
+                                    <IoSettingsOutline /> Configuración
+                                </Button>
                             </Menu.Item>
                         </Menu.Content>
                     </Menu.Positioner>

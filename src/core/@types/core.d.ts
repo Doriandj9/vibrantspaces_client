@@ -8,7 +8,11 @@ export type Children = {
 export type ButtonPrimaryType = ButtonProps & Children;
 
 export type User ={
+    id: number  | string;
     name: string;
+    email: string;
+    contact_number: string;
+    address: string | null;
     rol: {
         name: 'Admin' | 'Client'
     },

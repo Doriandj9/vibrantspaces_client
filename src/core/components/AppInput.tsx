@@ -19,10 +19,11 @@ type AppInputProps = {
     isControl?: boolean;
     isRequired?: boolean;
     isLoading?: boolean;
+    onBlur?: InputProps['onBlur'];
 };
 
 
-export const AppInput: React.FC<AppInputProps> = ({ name, label, startElement, fullWidth, control, className, inputProps, isRequired, isControl = true, isLoading }) => {
+export const AppInput: React.FC<AppInputProps> = ({ name, label, startElement, fullWidth, control, className, inputProps, isRequired, isControl = true, isLoading, onBlur }) => {
 
     if (!isControl) {
         return (
@@ -58,7 +59,16 @@ export const AppInput: React.FC<AppInputProps> = ({ name, label, startElement, f
 
                             </Field.Label>
                             <InputGroup flex={'1'} startElement={isLoading ? <LoadingInput /> : startElement} width={fullWidth ? '100%' : ''}>
-                                <Input disabled={isLoading} {...inputProps} onChange={field.onChange} onBlur={field.onBlur} ref={field.ref} value={field.value ?? ''} />
+                                <Input disabled={isLoading} {...inputProps} onChange={field.onChange} 
+                                onBlur={(e) => {
+                                    if(onBlur){
+                                        onBlur(e);
+                                    }
+                                    field.onBlur();
+
+                                }} 
+                                ref={field.ref} 
+                                value={field.value ?? ''} />
                             </InputGroup>
                             <Field.ErrorText>
                                 {fieldState.error?.message}
