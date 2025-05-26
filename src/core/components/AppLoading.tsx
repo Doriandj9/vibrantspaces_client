@@ -8,9 +8,9 @@ export const AppLoading = ({ loading }: { loading: boolean }) => {
 
     return createPortal(<>
         <div className="fixed top-0 left-0 min-h-screen">
-            <Dialog.Root open={loading} closeOnEscape={false} >
+            <Dialog.Root open={loading} closeOnEscape={false}>
                 <Portal>
-                    <Dialog.Backdrop />
+                    <Dialog.Backdrop zIndex={9999} />
                     <Dialog.Positioner>
                         <div className="flex items-center justify-center w-full h-screen">
                             <Spinner size={'lg'} color={'blue.700'} />

@@ -74,7 +74,29 @@
             "or": "o",
             "add": "Agregar",
             "recovery-password-title": "Recupera tu contraseña",
-            "notify-forward-password": "Hemos enviado un enlace para restablecer tu contraseña a tu correo electrónico. <br> Tienes una hora para completar el proceso antes de que expire."
+            "notify-forward-password": "Hemos enviado un enlace para restablecer tu contraseña a tu correo electrónico. <br> Tienes una hora para completar el proceso antes de que expire.",
+            "email": "Correo electrónico",
+            "message": "Mensaje",
+            "date-of-contact": "Fecha de contacto",
+            "contact-number": "Número de contacto",
+            "contact-table": "Contacto",
+            "Date of application": "Fecha de solicitud",
+            "Contact requests": "Solicitudes de contacto",
+            "Cleaning requests": "Solicitudes de limpieza",
+            "Information": "Información",
+            "Services": "Servicios",
+            "Request": "Solicitudes",
+            "Log Out": "Cerrar sesión",
+            "Setting": "Configuración",
+            "Administration": "Administración",
+            "Confirmation date": "Fecha de confirmación",
+            "Client name": "Nombre del cliente",
+            "Trash": "Papelera",
+            "Are you sure to continue?": "¿Estás seguro de continuar?",
+            "changes": "Los cambios se guardaron correctamente.",
+            "save-changes": "Guardar cambios"
+
+
         }
     },
     "mobile": {
@@ -104,7 +126,7 @@
         "salar": "Número de Salar",
         "direccion": "Dirección"
     },
-    "privacy": { 
+    "privacy": {
         "Privacy Policy for Vibrant Essences LLC": "Política de Privacidad de Vibrant Essences LLC",
         "1 paragraph": "Esta Política de Privacidad describe cómo Vibrant Essences LLC (\"nosotros\", \"nos\" o \"nuestro\") recopila, utiliza y comparte información personal de los usuarios que visitan nuestro sitio web, https://vibrantspacesfl.com/ (el \"Sitio Web\").",
         "ul1 Information We Collect": "Información que Recopilamos",

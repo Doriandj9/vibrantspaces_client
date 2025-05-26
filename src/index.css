@@ -23,7 +23,7 @@
       
    }
    .bg-img {
-    background-image: url('/sala1.png');
+    background-image: url('/sala1.webp');
    }
 
    .navbar-item{
@@ -45,6 +45,9 @@
 
   .item-link:hover::before {
     content: '- ';
+  }
+  .ck-link_selected{
+    @apply underline cursor-pointer;
   }
 
   #editor-content ol, ul {

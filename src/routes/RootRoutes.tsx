@@ -13,6 +13,7 @@ import { Services } from "@/modules/admin/pages/Services";
 import { ServicesPage } from "@/modules/client/pages/Home/ServicesPage";
 import { DataServicesPage } from "@/modules/admin/pages/DataServices/DataServices";
 import { Privacy } from "@/modules/client/pages/Home/Privacy";
+import { TrashPage } from "@/modules/admin/pages/Trash/Trashpage";
 
 
 const RootRoutes = () => {
@@ -48,6 +49,7 @@ const RootRoutes = () => {
             <Route path={webRoutes.admin.children.home.path} element={<HomeAdmin />} />
             <Route path={webRoutes.admin.children.services.path} element={<Services />} />
             <Route path={webRoutes.admin.children.requests.path} element={<DataServicesPage />} />
+            <Route path={webRoutes.admin.children.trash.path} element={<TrashPage />} />
           </Route>
         </Route>
 

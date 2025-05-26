@@ -64,8 +64,9 @@ export const getUserService: GetUserService = async (taxId) => {
     return response.data?.data || null;
 };
 
-export const getDataServices: GetDataServices = async () => {
+export const getDataServices: GetDataServices = async (params) => {
     const response = await api.get(routesApi.services.data_services.resource, {
+        params,
         headers: {
             'Authorization': `Bearer ${(useAuthStore.getState()).token}`,
             'X-lang': localStorage.getItem('languageApp') ?? 'es',
@@ -75,8 +76,9 @@ export const getDataServices: GetDataServices = async () => {
     return response.data?.data || null;
 };
  
-export const getMessage: GetDataMessages = async () => {
+export const getMessage: GetDataMessages = async (params) => {
     const response = await api.get(routesApi.services.data_services.children().message_get, {
+        params,
         headers: {
             'Authorization': `Bearer ${(useAuthStore.getState()).token}`,
             'X-lang': localStorage.getItem('languageApp') ?? 'es',

@@ -36,7 +36,13 @@ export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
             onSuccess(){
                 toast.success(t('app.success-message'),{position: 'top-center',duration: 5000});
                 setOpen(false);
-                reset({});
+                reset({
+                    doc_type: 'MS',
+                    email: '',
+                    payload: '',
+                    receiver: '1',
+                    type: 'TXT'
+                });
             }
         });
     };

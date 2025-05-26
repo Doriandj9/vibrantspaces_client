@@ -61,6 +61,7 @@ export type GetService = {
 };
 
 type NotificationModel = {
+    id: string | number;
     sender: number;          // user ID
     receiver: number;        // user ID
     payload: string;         // text payload
@@ -91,6 +92,7 @@ export type DataServiceModel = {
     created_at?: string;
     updated_at?: string;
     confirmations: NotificationModel[],
+    doc_status: 'AC' | 'DL' | 'DR'; // from DocStatus, default: 'ACTIVE'
     service: ServiceData
 };
 
@@ -115,12 +117,16 @@ export type GetUserService = {
     (tax_id): Promise<ResponseSuccessApi<User>['data']>;
 };
 
+export type ParamsDocStatus = {
+    doc_status: 'AC' | 'DL' | 'DR'; // from DocStatus, default: 'ACTIVE'
+};
+
 export type GetDataServices = {
-    (): Promise<ResponseSuccessApi<DataServiceModel[]>['data']>;
+    (params?:ParamsDocStatus): Promise<ResponseSuccessApi<DataServiceModel[]>['data']>;
 };
 
 export type GetDataMessages = {
-    (): Promise<ResponseSuccessApi<NotificationModel[]>['data']>;
+    (params?:ParamsDocStatus): Promise<ResponseSuccessApi<NotificationModel[]>['data']>;
 };
 
 

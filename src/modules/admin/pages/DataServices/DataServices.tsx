@@ -19,11 +19,12 @@ import { CiViewTable } from "react-icons/ci";
 import { useLanguageApp } from "@/store/languageStore";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useTableMessagesHelper } from "./TMessagesHelper";
-
+import { FaRegTrashCan } from "react-icons/fa6";
+import { usePutNotification, usePutServiceData } from "../../hooks/notiifcation/hook";
 
 export const DataServicesPage = () => {
-    const { data, isLoading, error } = useGetDataServices();
-    const {data: messages, isLoading: loadingMs, error: errorMs} = useGetMessages();
+    const { data, isLoading, error } = useGetDataServices({doc_status: 'AC'});
+    const { data: messages, isLoading: loadingMs, error: errorMs } = useGetMessages({doc_status: 'AC'});
 
     const actionFn = (item: DataServiceModel) => {
 
@@ -32,6 +33,7 @@ export const DataServicesPage = () => {
                 <span className="flex gap-2 items-center">
                     <ShowDataModal data={item} />
                     <ShowHistory data={item.confirmations} />
+                    <TrashActionDataService item={item} />
                 </span>
             </>
         );
@@ -39,7 +41,18 @@ export const DataServicesPage = () => {
 
     const tableHelper = useTableDataServicesHelper(actionFn);
 
-    const tableHelperMessage = useTableMessagesHelper();
+    const actionMessagesFn = (item: NotificationModel) => {
+
+        return (
+            <>
+                <span className="flex gap-2 items-center">
+                    <TrashAction item={item} />
+                </span>
+            </>
+        );
+    };
+
+    const tableHelperMessage = useTableMessagesHelper(actionMessagesFn);
 
     return (
         <>
@@ -293,7 +306,7 @@ const ShowHistory = ({ data }: { data: NotificationModel[] }) => {
                             <Popover.Content>
                                 <Popover.Arrow />
                                 <Popover.Body>
-                                    <Popover.Title fontWeight="medium">Contenido</Popover.Title>
+                                    <Popover.Title fontWeight="medium">Content</Popover.Title>
                                     <div className="max-w-full">
                                         <div dangerouslySetInnerHTML={{ __html: item.payload }} />
 
@@ -353,3 +366,122 @@ const ShowHistory = ({ data }: { data: NotificationModel[] }) => {
 };
 
 
+export const TrashAction = ({ item }: { item: NotificationModel }) => {
+    const [t] = useTranslation('client');
+    const [t_core] = useTranslation('core');
+    const [open, setOpen] = useState(false);
+    const { put } = usePutNotification(String(item.id));
+
+    const onChange = () => {
+        const data: Partial<NotificationModel> = { doc_status: 'DL' };
+        put.mutate(data, {
+            onSuccess() {
+                toast.success(t('login.labels.changes'));
+                setOpen(false);
+            },
+            onError(err) {
+                showError(err);
+            }
+        });
+    };
+    return (
+        <>
+            <AppLoading loading={put.isPending} />
+            <Dialog.Root open={open} onOpenChange={({ open }) => setOpen(open)}>
+                <Dialog.Trigger asChild>
+                    <IconButton colorPalette={'red'}>
+                        <FaRegTrashCan />
+                    </IconButton>
+                </Dialog.Trigger>
+                <Portal>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                        <Dialog.Content>
+                            <Dialog.Header>
+                                <Dialog.Title></Dialog.Title>
+                            </Dialog.Header>
+                            <Dialog.Body>
+                                <p className="font-bold text-lg text-center">
+                                    {t('login.labels.Are you sure to continue?')}
+                                </p>
+                            </Dialog.Body>
+                            <Dialog.Footer>
+                                <Dialog.ActionTrigger asChild>
+                                    <Button variant="outline">{t_core('app.regresar')}</Button>
+                                </Dialog.ActionTrigger>
+                                <Button
+                                    colorPalette={'red'}
+                                    onClick={onChange}
+                                >{t('login.labels.save-changes')}</Button>
+                            </Dialog.Footer>
+                            <Dialog.CloseTrigger asChild>
+                                <CloseButton size="sm" />
+                            </Dialog.CloseTrigger>
+                        </Dialog.Content>
+                    </Dialog.Positioner>
+                </Portal>
+            </Dialog.Root>
+        </>
+    );
+}; 
+
+
+
+export const TrashActionDataService = ({ item }: { item: DataServiceModel }) => {
+    const [t] = useTranslation('client');
+    const [t_core] = useTranslation('core');
+    const [open, setOpen] = useState(false);
+    const { put } = usePutServiceData(String(item.id));
+
+    const onChange = () => {
+        const data: Partial<DataServiceModel> = { doc_status: 'DL' };
+        put.mutate(data, {
+            onSuccess() {
+                toast.success(t('login.labels.changes'));
+                setOpen(false);
+            },
+            onError(err) {
+                showError(err);
+            }
+        });
+    };
+    return (
+        <>
+            <AppLoading loading={put.isPending} />
+            <Dialog.Root open={open} onOpenChange={({ open }) => setOpen(open)}>
+                <Dialog.Trigger asChild>
+                    <IconButton colorPalette={'red'}>
+                        <FaRegTrashCan />
+                    </IconButton>
+                </Dialog.Trigger>
+                <Portal>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                        <Dialog.Content>
+                            <Dialog.Header>
+                                <Dialog.Title></Dialog.Title>
+                            </Dialog.Header>
+                            <Dialog.Body>
+                                <p className="font-bold text-lg text-center">
+                                    {t('login.labels.Are you sure to continue?')}
+                                </p>
+                            </Dialog.Body>
+                            <Dialog.Footer>
+                                <Dialog.ActionTrigger asChild>
+                                    <Button variant="outline">{t_core('app.regresar')}</Button>
+                                </Dialog.ActionTrigger>
+                                <Button
+                                    colorPalette={'red'}
+                                    onClick={onChange}
+                                >{t('login.labels.save-changes')}</Button>
+                            </Dialog.Footer>
+                            <Dialog.CloseTrigger asChild>
+                                <CloseButton size="sm" />
+                            </Dialog.CloseTrigger>
+                        </Dialog.Content>
+                    </Dialog.Positioner>
+                </Portal>
+            </Dialog.Root>
+        </>
+    );
+}; 

@@ -31,6 +31,6 @@ export const setTitleApp = (pathname: string) => {
     const objTitle = objRoutes.find((res) => Reflect.has(res, pathname) || Reflect.has(res, `/${pathname}`));
     const title = objTitle ? objTitle[pathname] ?? objTitle[`/${pathname}`] : '';
     
-    document.title = `${title} | Vibrant Spaces `;
+    document.title = `${title} | Vibrant Essences LLC `;
 
 };

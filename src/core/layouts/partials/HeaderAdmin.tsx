@@ -33,7 +33,7 @@ export const HeaderAdmin = () => {
                     <Link to={'/admin'} className={'inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light'}>
                         <span
                         className="text-sm md:text-3xl select-none"
-                        >Vibrant Spaces</span>
+                        >Vibrant Essences LLC</span>
                     </Link>
 
                     <button className="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring">

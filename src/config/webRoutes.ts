@@ -67,6 +67,13 @@ export const webRoutes = {
                 uri(){
                     return `/admin/${this.path}`;
                 }
+            },
+            trash: {
+                path: 'trash',
+                title: 'Trash',
+                uri(){
+                    return `/admin/${this.path}`;
+                }
             }
         }
     }

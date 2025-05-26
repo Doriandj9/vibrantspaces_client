@@ -74,7 +74,28 @@
             "or": "or",
             "add": "Add",
             "recovery-password-title": "Recover your password",
-            "notify-forward-password": "We’ve sent a password reset link to your email. <br> You have one hour to complete the process before it expires."
+            "notify-forward-password": "We’ve sent a password reset link to your email. <br> You have one hour to complete the process before it expires.",
+            "email": "Email",
+            "message": "Message",
+            "date-of-contact": "Date of contact",
+            "contact-number": "Contact number",
+            "contact-table": "Contact",
+            "Date of application": "Date of application",
+            "Contact requests": "Contact requests",
+            "Cleaning requests": "Cleaning requests",
+            "Information": "Information",
+            "Services": "Services",
+            "Request": "Applications",
+            "Log Out": "Log Out",
+            "Setting": "Account setting",
+            "Administration": "Administration",
+            "Confirmation date": "Confirmation date",
+            "Client name": "Client name",
+            "Trash": "Trash",
+            "Are you sure to continue?": "Are you sure to continue?",
+            "changes": "Changes were saved successfully.",
+            "save-changes": "Save changes"
+
         }
     },
     "mobile": {

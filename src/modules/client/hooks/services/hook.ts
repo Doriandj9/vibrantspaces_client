@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getDataServices, getMessage, getService, getServices, getUserService, setPictureService, storeDataServices, storeMessageConfirmation, storeMessageContact } from "./queries";
-import { FormDataService, PictureForm, StoreMessageConfirmation, StoreMessageContact } from "./services";
+import { FormDataService, ParamsDocStatus, PictureForm, StoreMessageConfirmation, StoreMessageContact } from "./services";
 
 
 export const useGetServices = () => {
@@ -59,10 +59,10 @@ export const useGetUserService = (taxId?: null | string) => {
 };
 
 
-export const useGetDataServices = () => {
+export const useGetDataServices = (params?: ParamsDocStatus) => {
     const hook = useQuery({
-        queryKey: ['data-services'],
-        queryFn: getDataServices,
+        queryKey: ['data-services',params],
+        queryFn: () => getDataServices(params),
     });
 
     return { ...hook };
@@ -74,7 +74,7 @@ export const useStoreSendConfirmation = () => {
         mutationKey: ['send-confirmation'],
         mutationFn: (data: StoreMessageConfirmation) => storeMessageConfirmation(data),
         onSuccess(){
-            client.invalidateQueries({queryKey: ['data-services']});
+            client.invalidateQueries({queryKey: ['data-services',{doc_status: 'AC'}]});
         }
     });
 
@@ -82,10 +82,10 @@ export const useStoreSendConfirmation = () => {
 };
 
 
-export const useGetMessages = () => {
+export const useGetMessages = (params?: ParamsDocStatus) => {
     const hook = useQuery({
-        queryKey: ['data-messages'],
-        queryFn: getMessage,
+        queryKey: ['data-messages',params],
+        queryFn: () => getMessage(params),
     });
 
     return { ...hook };
@@ -97,7 +97,7 @@ export const useStoreSendMessage = () => {
         mutationKey: ['send-message'],
         mutationFn: (data: StoreMessageContact) => storeMessageContact(data),
         onSuccess(){
-            client.invalidateQueries({queryKey: ['data-messages']});
+            client.invalidateQueries({queryKey: ['data-messages',{doc_status: 'AC'}]});
         }
     });
 
