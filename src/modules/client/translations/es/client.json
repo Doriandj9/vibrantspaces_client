@@ -97,8 +97,9 @@
             "save-changes": "Guardar cambios",
             "Welcome to": "Bienvenido a ",
             "Name": "Nombre",
-            "created_at": "Created at",
-            "updated_at": "Updated at"
+            "created_at": "Creado el",
+            "updated_at": "Actualizado el"
+            
 
 
         }
