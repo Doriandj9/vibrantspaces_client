@@ -94,7 +94,11 @@
             "Trash": "Papelera",
             "Are you sure to continue?": "¿Estás seguro de continuar?",
             "changes": "Los cambios se guardaron correctamente.",
-            "save-changes": "Guardar cambios"
+            "save-changes": "Guardar cambios",
+            "Welcome to": "Bienvenido a ",
+            "Name": "Nombre",
+            "created_at": "Created at",
+            "updated_at": "Updated at"
 
 
         }

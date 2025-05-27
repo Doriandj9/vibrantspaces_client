@@ -13,10 +13,12 @@ import { ButtonPrimary } from "@/core/components/ButtonPrimary";
 import { toast } from "sonner";
 import { AppLoading } from "@/core/components/AppLoading";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 
 export const Services = () => {
     const { data, error, isLoading } = useGetServices();
+    const [t] = useTranslation('client');
 
     const actionFn = (item: ServiceData) => {
 
@@ -33,7 +35,7 @@ export const Services = () => {
         <>
             <div className="p-2">
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
-                    <span className="container-fluid text-lg font-bold">Servicios</span>
+                    <span className="container-fluid text-lg font-bold">{t('login.labels.Services')}</span>
                 </div>
                 <div className="app-container-fade w-full min-h-60 mt-4 p-2">
 
@@ -130,3 +132,5 @@ export const AddPicture: React.FC<AddPictureProps> = ({ service }) => {
 
     );
 };
+
+

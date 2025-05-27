@@ -134,6 +134,7 @@ export const Settings = () => {
 
 export const Avatar = () => {
     const [open, setOpen] = useState(false);
+    const [t] = useTranslation('client');
     return (
         <>
             <ConfigurationModal open={open} setOpen={setOpen} />
@@ -156,7 +157,7 @@ export const Avatar = () => {
                                 <Button variant="outline" size="sm"
                                     onClick={() => setOpen(true)}
                                 >
-                                    <IoSettingsOutline /> Configuración
+                                    <IoSettingsOutline /> {t('mobile.menu.configuration')}
                                 </Button>
                             </Menu.Item>
                         </Menu.Content>

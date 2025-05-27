@@ -40,6 +40,8 @@ interface ServiceData {
     list: ListTranslations;
     trans: TransTranslations;
     picture?: string;
+    created_at?: string;
+    updated_at?: string;
 }
 
 export type PictureForm = {

@@ -1,16 +1,18 @@
 
 import { useAuthStore } from "@/store/authStore";
+import { useTranslation } from "react-i18next";
 import { LuUser } from "react-icons/lu";
 import { LuBox } from "react-icons/lu";
 import { LuShield } from "react-icons/lu";
 
 export const DescriptionUser = () => {
     const user = useAuthStore((state) => state.user);
+    const [t] = useTranslation('client');
 
     
     return (
         <div className="">
-            <h3 className="text-sm font-bold my-2">Información</h3>
+            <h3 className="text-sm font-bold my-2">{t('login.labels.Information')}</h3>
             <ul>
                 <li className="flex items-center gap-1 mt-1">
                     <LuUser  className="text-blue-500 flex-shrink-0" /> 

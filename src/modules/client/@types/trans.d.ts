@@ -95,7 +95,11 @@ interface Resources {
         "Trash": "Trash",
         "Are you sure to continue?": "Are you sure to continue?",
         "changes": "Changes were saved successfully.",
-        "save-changes": "Save changes"
+        "save-changes": "Save changes",
+        "Welcome to": "Welcome to ",
+        "Name": "Name",
+        "created_at": "Creado el",
+        "updated_at": "Actualizado el"
       }
     },
     "mobile": {

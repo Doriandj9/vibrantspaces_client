@@ -23,8 +23,9 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { usePutNotification, usePutServiceData } from "../../hooks/notiifcation/hook";
 
 export const DataServicesPage = () => {
-    const { data, isLoading, error } = useGetDataServices({doc_status: 'AC'});
-    const { data: messages, isLoading: loadingMs, error: errorMs } = useGetMessages({doc_status: 'AC'});
+    const { data, isLoading, error } = useGetDataServices({ doc_status: 'AC' });
+    const { data: messages, isLoading: loadingMs, error: errorMs } = useGetMessages({ doc_status: 'AC' });
+    const [t] = useTranslation('client');
 
     const actionFn = (item: DataServiceModel) => {
 
@@ -58,7 +59,7 @@ export const DataServicesPage = () => {
         <>
             <div className="p-2">
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
-                    <span className="container-fluid text-lg font-bold">Solicitudes de limpieza</span>
+                    <span className="container-fluid text-lg font-bold">{t('login.labels.Cleaning requests')}</span>
                 </div>
                 <div className="app-container-fade w-full min-h-60 mt-4 p-2">
                     <AppTable data={data ?? []} error={error} isLoading={isLoading} tableHelper={tableHelper} />
@@ -66,7 +67,7 @@ export const DataServicesPage = () => {
             </div>
             <div className="p-2">
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
-                    <span className="container-fluid text-lg font-bold">Solicitudes de contactos</span>
+                    <span className="container-fluid text-lg font-bold">{t('login.labels.Contact requests')}</span>
                 </div>
                 <div className="app-container-fade w-full min-h-60 mt-4 p-2">
                     <AppTable data={messages ?? []} error={errorMs} isLoading={loadingMs} tableHelper={tableHelperMessage} />
@@ -423,7 +424,7 @@ export const TrashAction = ({ item }: { item: NotificationModel }) => {
             </Dialog.Root>
         </>
     );
-}; 
+};
 
 
 

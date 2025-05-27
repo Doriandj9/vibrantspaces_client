@@ -1,5 +1,5 @@
 import { AppTable } from "@/core/components/AppTable";
-import { useGetDataServices, useGetMessages  } from "@/modules/client/hooks/services/hook";
+import { useGetDataServices, useGetMessages } from "@/modules/client/hooks/services/hook";
 import { DataServiceModel, NotificationModel } from "@/modules/client/hooks/services/services";
 import { useTableDataServicesHelper } from "./TDataServicesHelper";
 
@@ -17,15 +17,15 @@ import { usePutNotification, usePutServiceData } from "../../hooks/notiifcation/
 import { LuArchiveRestore } from "react-icons/lu";
 
 export const TrashPage = () => {
-    const { data, isLoading, error } = useGetDataServices({doc_status: 'DL'});
-    const { data: messages, isLoading: loadingMs, error: errorMs } = useGetMessages({doc_status: 'DL'});
-
+    const { data, isLoading, error } = useGetDataServices({ doc_status: 'DL' });
+    const { data: messages, isLoading: loadingMs, error: errorMs } = useGetMessages({ doc_status: 'DL' });
+    const [t] = useTranslation('client');
     const actionFn = (item: DataServiceModel) => {
 
         return (
             <>
                 <span className="flex gap-2 items-center">
-             
+
                     <TrashActionDataService item={item} />
                 </span>
             </>
@@ -51,7 +51,7 @@ export const TrashPage = () => {
         <>
             <div className="p-2">
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
-                    <span className="container-fluid text-lg font-bold">Solicitudes de limpieza</span>
+                    <span className="container-fluid text-lg font-bold">{t('login.labels.Cleaning requests')}</span>
                 </div>
                 <div className="app-container-fade w-full min-h-60 mt-4 p-2">
                     <AppTable data={data ?? []} error={error} isLoading={isLoading} tableHelper={tableHelper} />
@@ -59,7 +59,7 @@ export const TrashPage = () => {
             </div>
             <div className="p-2">
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
-                    <span className="container-fluid text-lg font-bold">Solicitudes de contactos</span>
+                    <span className="container-fluid text-lg font-bold">{t('login.labels.Contact requests')}</span>
                 </div>
                 <div className="app-container-fade w-full min-h-60 mt-4 p-2">
                     <AppTable data={messages ?? []} error={errorMs} isLoading={loadingMs} tableHelper={tableHelperMessage} />
@@ -129,7 +129,7 @@ export const TrashAction = ({ item }: { item: NotificationModel }) => {
             </Dialog.Root>
         </>
     );
-}; 
+};
 
 
 
