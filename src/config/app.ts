@@ -5,6 +5,7 @@ import axios from 'axios';
 const host = import.meta.env.VITE_API_URL;
 const versionApp = import.meta.env.VITE_APP_VERSION;
 const endPointApi = import.meta.env.VITE_ENDPOINT_API;
+const phoneNumber = import.meta.env.VITE_PHONE_NUMBER;
 export const appName = import.meta.env.VITE_APP_NAME;
 
 let lngDefault: LanguageApp = 'en';
@@ -34,7 +35,8 @@ export const app: AppConfig = {
     apiV: versionApp,
     timeRefetchInterval: (1000 * 30),
     language: lngDefault,
-    host: host
+    host: host,
+    phoneNumber
 };
 
 

@@ -65,6 +65,10 @@ export type AppConfig = {
      * @param {string} LanguageApp language for app
      */
     language: LanguageApp;
+    /**
+     * @param {string} phoneNumber number for contact
+     */
+    phoneNumber?: string;
 };
 
 

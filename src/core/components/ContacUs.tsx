@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { AppLoading } from "./AppLoading";
 import { toast } from "sonner";
 import { useState } from "react";
+import { app } from "@/config/app";
 export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
     const [t] = useTranslation('core');
     const [t_client] = useTranslation('client');
@@ -70,7 +71,7 @@ export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
                                     </h3>
                                     <div className="text-xl text-secondary text-center">
                                         <p className="flex items-center pa-2 justify-center">
-                                            <MdPhoneIphone className="w-5 h-5" /> <span>+25 988766-23223</span>
+                                            <MdPhoneIphone className="w-5 h-5" /> <span>{app.phoneNumber}</span>
                                         </p>
                                     </div>
                                     <div className="my-4 flex gap-4 items-center">
