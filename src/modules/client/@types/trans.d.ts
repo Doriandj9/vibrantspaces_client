@@ -35,7 +35,12 @@ interface Resources {
         "Es un campo requerido": "This field is required",
         "No es un numero valido": "Not a valid number",
         "No puede ser un numero negativo": "Cannot be a negative number",
-        "Ingrese su mensaje": "Enter your message"
+        "Ingrese su mensaje": "Enter your message",
+        "Las contraseñas no coinciden": "Passwords do not match",
+        "Solo se pueden subir archivos de imagen": "Only image files can be uploaded",
+        "No se puede subir una imagen que pese más de 50 MB": "You cannot upload an image larger than 50 MB.",
+        "success-mail": "We've sent a confirmation email to your email address. Please follow the instructions to change your password.",
+        "update-password": "Your password has been updated successfully."
       }
     },
     "login": {
@@ -86,6 +91,7 @@ interface Resources {
         "Cleaning requests": "Cleaning requests",
         "Information": "Information",
         "Services": "Services",
+        "Home": "Home",
         "Request": "Applications",
         "Log Out": "Log Out",
         "Setting": "Account setting",
@@ -98,8 +104,12 @@ interface Resources {
         "save-changes": "Save changes",
         "Welcome to": "Welcome to ",
         "Name": "Name",
-        "created_at": "Creado el",
-        "updated_at": "Actualizado el"
+        "created_at": "Created at",
+        "updated_at": "Updated at",
+        "Suba una imagen": "Upload Image",
+        "Arrastre y suelte aquí para cargar o haga click aquí para buscar": "Drag and drop here to upload or click here to search",
+        "I forgot my password": "I forgot my password",
+        "continue": "Continue"
       }
     },
     "mobile": {
@@ -109,7 +119,9 @@ interface Resources {
         "logout": "Log Out",
         "account-setting": "Account setting",
         "administration": "Administration",
-        "notifications": "Notifications"
+        "notifications": "Notifications",
+        "system": "System",
+        "Cambiar Imagen": "Change Image"
       }
     },
     "form-services-contact": {

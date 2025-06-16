@@ -21,8 +21,29 @@ export type AccountChangesForm = {
     email: string;
     password?: string;
     repeat_password?: string;
+    phone_number?: string;
 };
 
 export type PutAccountChanges = {
     (data: AccountChangesForm, id: string): Promise<ResponseSuccessApi<ResponseUserProps>['data']>;
 }
+
+
+export type ForgotPasswordFn = {
+    ({ email: string }): Promise<ResponseSuccessApi<string>['data']>;
+};
+
+export type ResetPasswordForm = {
+    email:string;
+    password:string;
+    repeat_password?:string;
+};
+
+export type VerifyToken = {
+    (params: { token: string }): Promise<ResponseSuccessApi<{ email: string }>['data']>;
+};
+
+
+export type ChangePassword = {
+    (data: ResetPasswordForm): Promise<ResponseSuccessApi<string>['data']>;
+};

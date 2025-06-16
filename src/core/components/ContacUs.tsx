@@ -16,12 +16,15 @@ import { AppLoading } from "./AppLoading";
 import { toast } from "sonner";
 import { useState } from "react";
 import { app } from "@/config/app";
+import { useGetAppSettings } from "@/modules/admin/hooks/app/hook";
 export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
     const [t] = useTranslation('core');
     const [t_client] = useTranslation('client');
     const { store } = useStoreSendMessage();
     const schema = useSendMessageSchema();
     const [open, setOpen] = useState(false);
+    const {data, error} = useGetAppSettings();
+
     const { control, handleSubmit, reset } = useForm<StoreMessageContact>({
         resolver: zodResolver(schema),
         defaultValues: {
@@ -71,7 +74,8 @@ export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
                                     </h3>
                                     <div className="text-xl text-secondary text-center">
                                         <p className="flex items-center pa-2 justify-center">
-                                            <MdPhoneIphone className="w-5 h-5" /> <span>{app.phoneNumber}</span>
+                                            <MdPhoneIphone className="w-5 h-5" /> <span>{data?.phone_number ?? app.phoneNumber}</span>
+                                        {error ? <span>{error.message}</span> : null}
                                         </p>
                                     </div>
                                     <div className="my-4 flex gap-4 items-center">
@@ -88,6 +92,7 @@ export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
                                         <AppTextarea
                                             className="w-full"
                                             name="payload"
+                                            isRequired
                                             control={control}
                                             label={t_client('login.inputs.message.label')}
                                             fullWidth
@@ -95,12 +100,22 @@ export const ContactUs = ({ fullWidth }: { fullWidth?: boolean }) => {
                                         <AppInput
                                             className="mt-2 w-full"
                                             name="email"
+                                            isRequired
                                             control={control}
                                             fullWidth
                                             label={t_client('login.inputs.email.placeholder')}
                                             inputProps={{
                                                 type: 'email'
                                             }}
+                                        />
+
+                                        <AppInput
+                                            className="mt-2 w-full"
+                                            name="phone_number"
+                                            control={control}
+                                            isRequired
+                                            fullWidth
+                                            label={t_client('login.labels.contact-number')}
                                         />
                                     </div>
 

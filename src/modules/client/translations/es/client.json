@@ -34,7 +34,12 @@
             "Es un campo requerido": "Es un campo requerido",
             "No es un numero valido": "No es un numero valido",
             "No puede ser un numero negativo": "No puede ser un numero negativo",
-            "Ingrese su mensaje": "Ingrese su mensaje"
+            "Ingrese su mensaje": "Ingrese su mensaje",
+            "Las contraseñas no coinciden": "Las contraseñas no coinciden",
+            "Solo se pueden subir archivos de imagen": "Solo se pueden subir archivos de imagen",
+            "No se puede subir una imagen que pese más de 50 MB": "No se puede subir una imagen que pese más de 50 MB",
+            "success-mail": "Hemos enviado un correo de confirmación a tu dirección de email. Por favor, sigue las instrucciones para cambiar tu contraseña.",
+            "update-password": "Se actualizo correctamente tu contraseña."
         }
     },
     "login": {
@@ -85,6 +90,7 @@
             "Cleaning requests": "Solicitudes de limpieza",
             "Information": "Información",
             "Services": "Servicios",
+            "Home": "Inicio",
             "Request": "Solicitudes",
             "Log Out": "Cerrar sesión",
             "Setting": "Configuración",
@@ -98,9 +104,11 @@
             "Welcome to": "Bienvenido a ",
             "Name": "Nombre",
             "created_at": "Creado el",
-            "updated_at": "Actualizado el"
-            
-
+            "updated_at": "Actualizado el",
+            "Suba una imagen": "Suba una imagen",
+            "Arrastre y suelte aquí para cargar o haga click aquí para buscar": "Arrastre y suelte aquí para cargar o haga click aquí para buscar",
+            "I forgot my password": "Olvidé mi contraseña",
+            "continue": "Continuar"
 
         }
     },
@@ -111,7 +119,10 @@
             "logout": "Cerrar Sesión",
             "account-setting": "Configuración de cuenta",
             "administration": "Administración",
-            "notifications": "Notificaciones"
+            "notifications": "Notificaciones",
+            "system": "Sistema",
+            "Cambiar Imagen": "Cambiar Imagen"
+
         }
     },
     "form-services-contact": {

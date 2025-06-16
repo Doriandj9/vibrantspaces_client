@@ -32,10 +32,10 @@ export const MenuMobile = () => {
                                 borderBottom={'1px solid'}
                                 borderColor={'gray.200'}
                                 py={'4'}
-                                fontWeight={'semibold'}
+                                fontWeight={''}
                             >
                                 <Link to={'/'}>
-                                    <AiOutlineHome /> Inicio
+                                    <AiOutlineHome /> {t('app.Home')}
                                 </Link>
                             </Menu.Item>
                             <Menu.Item value="new-txt" asChild
@@ -77,6 +77,8 @@ export const MenuMobile = () => {
 
 const ServicesOptions = () => {
     const { data } = useGetServices();
+    const [t_client] = useTranslation('client');
+    
     const lang = useLanguageApp((state) => state.language);
     return (
         <>
@@ -90,7 +92,7 @@ const ServicesOptions = () => {
                         borderColor={'gray.200'}
                         fontSize={'lg'}
                     >
-                        <PiSuitcaseSimpleBold /> Servicios
+                        <PiSuitcaseSimpleBold /> {t_client('login.labels.Services')}
                         <Accordion.ItemIndicator />
                     </Accordion.ItemTrigger>
                     <Accordion.ItemContent>

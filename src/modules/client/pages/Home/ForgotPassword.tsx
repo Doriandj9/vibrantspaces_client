@@ -4,35 +4,38 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { AppInput } from "@/core/components/AppInput";
 import { ButtonPrimary } from "@/core/components/ButtonPrimary";
 import { useTranslation } from "react-i18next";
-import { LoginForm, useLoginSchema } from "../../validations/loginSchema";
+import { useEmailSchema } from "../../validations/loginSchema";
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useAuthApp } from "../../hooks/auth/hook";
-import { useAuthStore } from "@/store/authStore";
 import { AppLoading } from "@/core/components/AppLoading";
+import { useForgotPassword } from "../../hooks/auth/hook";
+import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { webRoutes } from "@/config/webRoutes";
+import { showError } from "@/core/utilities/errors";
 
-export const Login = () => {
+export const ForgotPassword = () => {
     const [t] = useTranslation('client');
-    const schema = useLoginSchema();
-    const { auth } = useAuthApp();
-    const { updateToken, updateUser } = useAuthStore((state) => state);
-    const { control, handleSubmit } = useForm<LoginForm>({
+    const schema = useEmailSchema();
+    const { forgot } = useForgotPassword();
+    const { control, handleSubmit, reset } = useForm<{ email: string }>({
         resolver: zodResolver(schema)
     });
 
-    const onLogin: SubmitHandler<LoginForm> = (data) => {
-        auth.mutate(data, {
-            onSuccess(data) {
-                updateToken(data.token, data.time_expired_token);
-                updateUser(data.jwt);
+    const onLogin: SubmitHandler<{ email: string }> = (data) => {
+        forgot.mutate(data, {
+            onSuccess() {
+                toast.success(t('validations.messages.success-mail'));
+                reset({ email: '' });
+            },
+            onError(error) {
+                showError(error);
             },
         });
     };
 
     return (
         <>
-        <AppLoading loading={auth.isPending} />
+            <AppLoading loading={forgot.isPending} />
             <AppLayout>
                 <div className="flex justify-center items-center">
 
@@ -51,24 +54,15 @@ export const Login = () => {
                                         control={control}
                                         label={t('login.inputs.email.placeholder')}
                                     />
-                                    <AppInput
-                                        className="w-full"
-                                        name="password"
-                                        fullWidth
-                                        inputProps={{
-                                            type: 'password'
-                                        }}
-                                        control={control}
-                                        label={t('login.inputs.password.placeholder')}
-                                    />
-                                    <div className="mt-2 flex justify-start w-full ps-2">
-                                        <Link to={webRoutes.forgot_password.path} className="text-start font-thin text-primary underline">
-                                            {t('login.labels.I forgot my password')}?
+
+                                    <div className="mt-2">
+                                        <Link to={webRoutes.login.path} className="text-primary underline">
+                                            {t('login.header.title')}
                                         </Link>
                                     </div>
                                     <div className="my-4">
                                         <ButtonPrimary type="submit">
-                                            {t('mobile.menu.login')}
+                                            {t('login.labels.continue')}
                                         </ButtonPrimary>
                                     </div>
                                 </div>

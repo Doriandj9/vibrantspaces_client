@@ -49,6 +49,7 @@ export const useSendMessageSchema = () => {
             receiver: z.literal('1'),
             doc_type: z.literal('MS'),
             email: z.string().email(t('validations.messages.email-type')),
+            phone_number: z.string().min(3, t('validations.messages.min-length').replace('{count}', '3'))
         });
     }, [t]);
 

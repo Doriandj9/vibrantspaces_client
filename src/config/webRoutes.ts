@@ -43,6 +43,20 @@ export const webRoutes = {
             return this.path;
         }
     },
+    forgot_password: {
+        path: '/auth/forgot-password',
+        title: 'Forgot Password',
+        uri(){
+            return this.path;
+        }
+    },
+    change_password: {
+        path: '/auth/change-password',
+        title: 'Reset Password',
+        uri(){
+            return this.path;
+        }
+    },
     admin: {
         path: '/admin',
         title: 'Dashboard Admin',

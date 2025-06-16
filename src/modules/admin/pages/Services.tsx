@@ -37,7 +37,7 @@ export const Services = () => {
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
                     <span className="container-fluid text-lg font-bold">{t('login.labels.Services')}</span>
                 </div>
-                <div className="app-container-fade w-full min-h-60 mt-4 p-2">
+                <div className="app-container-fade w-full min-h-60 mt-4 p-2 dark:text-white">
 
                     <AppTable data={data ?? []} error={error} isLoading={isLoading} tableHelper={tableHelper} />
                 </div>
@@ -54,15 +54,17 @@ type AddPictureProps = {
 
 export const AddPicture: React.FC<AddPictureProps> = ({ service }) => {
     const { set } = useSetPictureService(service.id);
-    const [open,setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [t] = useTranslation('client');
+    const [t_core] = useTranslation('core');
     const schema = usePictureSchema();
     const { control, handleSubmit, reset } = useForm<PictureForm>({
         resolver: zodResolver(schema)
     });
 
     const onSave: SubmitHandler<PictureForm> = (data) => {
-        set.mutate(data,{
-            onSuccess(){
+        set.mutate(data, {
+            onSuccess() {
                 reset({
                     picture: undefined
                 });
@@ -72,62 +74,63 @@ export const AddPicture: React.FC<AddPictureProps> = ({ service }) => {
         });
     };
 
-  
+
     return (
         <>
-        <AppLoading loading={set.isPending } />
-        <Dialog.Root open={open} onOpenChange={({open}) => setOpen(open)}>
-            <Dialog.Trigger asChild>
-                <IconButton colorPalette={'green'}>
-                    <AiOutlinePicture />
-                </IconButton>
-            </Dialog.Trigger>
-            <Portal>
-                <Dialog.Backdrop />
-                <Dialog.Positioner>
-                    <Dialog.Content>
-                        <Dialog.Header>
-                            <Dialog.Title>Cambiar Imagen</Dialog.Title>
-                        </Dialog.Header>
-                        <Dialog.Body>
-                            <AppFileUpload
-                                control={control}
-                                name="picture"
-                                label="Suba una imagen"
-                                accept={'image/*'}
-                                verifyFiles={(file) => {
-                                    const maxSizeInMB = 50;
-                                    const maxSizeInBytes = maxSizeInMB * 1024 * 1024; // 50 MB
+            <AppLoading loading={set.isPending} />
+            <Dialog.Root open={open} onOpenChange={({ open }) => setOpen(open)}>
+                <Dialog.Trigger asChild>
+                    <IconButton colorPalette={'green'}>
+                        <AiOutlinePicture />
+                    </IconButton>
+                </Dialog.Trigger>
+                <Portal>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                        <Dialog.Content>
+                            <Dialog.Header>
+                                <Dialog.Title>{t('mobile.menu.Cambiar Imagen')}</Dialog.Title>
+                            </Dialog.Header>
+                            <Dialog.Body>
+                                <AppFileUpload
+                                    control={control}
+                                    name="picture"
+                                    label={t('login.labels.Suba una imagen')}
+                                    labelUpload={t("login.labels.Arrastre y suelte aquí para cargar o haga click aquí para buscar")}
+                                    accept={'image/*'}
+                                    verifyFiles={(file) => {
+                                        const maxSizeInMB = 50;
+                                        const maxSizeInBytes = maxSizeInMB * 1024 * 1024; // 50 MB
 
-                                    if (!file.type.startsWith("image/")) {
-                                        toast.error('Solo se pueden subir archivos de imagen', {position: 'top-center'});
-                                        return false;
-                                    }
+                                        if (!file.type.startsWith("image/")) {
+                                            toast.error(t('validations.messages.Solo se pueden subir archivos de imagen'), { position: 'top-center' });
+                                            return false;
+                                        }
 
-                                    if (file.size > maxSizeInBytes) {
-                                        toast.error('No se puede subir una imagen que pese más de 50 MB',{position: 'top-center'});
-                                        return false;
-                                    }
+                                        if (file.size > maxSizeInBytes) {
+                                            toast.error(t('validations.messages.No se puede subir una imagen que pese más de 50 MB'), { position: 'top-center' });
+                                            return false;
+                                        }
 
-                                    return true;
-                                }}
-                            />
-                        </Dialog.Body>
-                        <Dialog.Footer>
-                            <Dialog.ActionTrigger asChild>
-                                <Button variant="outline">Regresar</Button>
-                            </Dialog.ActionTrigger>
-                            <ButtonPrimary onClick={handleSubmit(onSave)}>
-                                Guardar Cambios
-                            </ButtonPrimary>
-                        </Dialog.Footer>
-                        <Dialog.CloseTrigger asChild>
-                            <CloseButton size="sm" />
-                        </Dialog.CloseTrigger>
-                    </Dialog.Content>
-                </Dialog.Positioner>
-            </Portal>
-        </Dialog.Root>
+                                        return true;
+                                    }}
+                                />
+                            </Dialog.Body>
+                            <Dialog.Footer>
+                                <Dialog.ActionTrigger asChild>
+                                    <Button variant="outline">{t_core('app.regresar')}</Button>
+                                </Dialog.ActionTrigger>
+                                <ButtonPrimary onClick={handleSubmit(onSave)}>
+                                    {t('login.labels.save-changes')}
+                                </ButtonPrimary>
+                            </Dialog.Footer>
+                            <Dialog.CloseTrigger asChild>
+                                <CloseButton size="sm" />
+                            </Dialog.CloseTrigger>
+                        </Dialog.Content>
+                    </Dialog.Positioner>
+                </Portal>
+            </Dialog.Root>
         </>
 
     );

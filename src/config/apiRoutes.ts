@@ -5,7 +5,10 @@ export const routesApi = {
     auth: {
         login: 'security/attempt',
         logout: 'security/logout',
-        user: 'settings/user'
+        user: 'settings/user',
+        forgot_pass: '/security/forgot-password',
+        verify_pass: '/security/verify-password',
+        change_pass: '/security/change-password',
     },
     services: {
         all: 'services',

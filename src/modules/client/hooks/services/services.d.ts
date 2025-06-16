@@ -146,6 +146,7 @@ export type StoreMessageContact = {
     receiver: '1';
     doc_type: 'MS';
     email: string;
+    phone_number:string;
 };
 
 

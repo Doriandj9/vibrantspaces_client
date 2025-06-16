@@ -35,7 +35,7 @@
    }
 
    .app-container-fade {
-    @apply bg-white shadow-lg rounded-xl dark:bg-slate-700 dark:shadow-slate-800;
+    @apply bg-white shadow-lg rounded-xl  dark:shadow-slate-800;
   }
 
   .item-link {

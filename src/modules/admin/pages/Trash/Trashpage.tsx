@@ -53,7 +53,7 @@ export const TrashPage = () => {
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
                     <span className="container-fluid text-lg font-bold">{t('login.labels.Cleaning requests')}</span>
                 </div>
-                <div className="app-container-fade w-full min-h-60 mt-4 p-2">
+                <div className="app-container-fade w-full min-h-60 mt-4 p-2 dark:text-white">
                     <AppTable data={data ?? []} error={error} isLoading={isLoading} tableHelper={tableHelper} />
                 </div>
             </div>
@@ -61,7 +61,7 @@ export const TrashPage = () => {
                 <div className="flex justify-center sticky top-0 w-full bg-transparent z-10">
                     <span className="container-fluid text-lg font-bold">{t('login.labels.Contact requests')}</span>
                 </div>
-                <div className="app-container-fade w-full min-h-60 mt-4 p-2">
+                <div className="app-container-fade w-full min-h-60 mt-4 p-2 dark:text-white">
                     <AppTable data={messages ?? []} error={errorMs} isLoading={loadingMs} tableHelper={tableHelperMessage} />
                 </div>
             </div>

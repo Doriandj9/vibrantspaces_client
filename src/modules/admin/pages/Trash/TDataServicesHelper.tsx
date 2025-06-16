@@ -25,7 +25,7 @@ export const useTableDataServicesHelper: TableHelperHook<DataServiceModel> = (ac
             {
                 header: t('login.labels.email'),
                 render(item) {
-                    return <a  className="text-primary font-semibold" href={`mailto:${item?.user.email}`}>{item?.user.email}</a>;
+                    return <a  className="text-primary font-semibold dark:text-white" href={`mailto:${item?.user.email}`}>{item?.user.email}</a>;
                 },
             },
             {

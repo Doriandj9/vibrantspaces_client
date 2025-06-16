@@ -14,6 +14,8 @@ import { ServicesPage } from "@/modules/client/pages/Home/ServicesPage";
 import { DataServicesPage } from "@/modules/admin/pages/DataServices/DataServices";
 import { Privacy } from "@/modules/client/pages/Home/Privacy";
 import { TrashPage } from "@/modules/admin/pages/Trash/Trashpage";
+import { ForgotPassword } from "@/modules/client/pages/Home/ForgotPassword";
+import { ChangePassword } from "@/modules/client/pages/Home/ChangePassword";
 
 
 const RootRoutes = () => {
@@ -29,6 +31,8 @@ const RootRoutes = () => {
 
         <Route element={<MiddlewareLogin />}>
           <Route path={webRoutes.login.path} element={<Login />} />
+          <Route path={webRoutes.forgot_password.path} element={<ForgotPassword />} />
+          <Route path={webRoutes.change_password.path} element={<ChangePassword />} />
         </Route>
 
         <Route element={<AuthPages />}>

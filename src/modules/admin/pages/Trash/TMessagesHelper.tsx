@@ -19,7 +19,7 @@ export const useTableMessagesHelper: TableHelperHook<NotificationModel> = (actio
             {
                header: t('login.labels.email'),
                 render(item) {
-                    return <a href={`mailto:${item?.email}`}><span className="text-primary font-semibold">{item?.email}</span></a>;
+                    return <a href={`mailto:${item?.email}`}><span className="text-primary font-semibold dark:text-white">{item?.email}</span></a>;
                 }, 
             },
             {

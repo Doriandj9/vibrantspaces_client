@@ -12,6 +12,7 @@ import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import { useGetAppSettings, usePutAppSettings } from "../hooks/app/hook";
 
 type ConfigurationModalProps = {
     open: boolean;
@@ -23,13 +24,16 @@ export const ConfigurationModal: React.FC<ConfigurationModalProps> = ({ open, se
     const [t_core] = useTranslation('core');
     const user = useAuthStore((s) => s.user);
     const { put } = useAccountChangesPut(user?.id);
+    const {put: putAppSettings} = usePutAppSettings();
+    const {data: appSettings } = useGetAppSettings();
     const schema = useAccountChangesPutSchema();
     const { updateToken, updateUser } = useAuthStore((state) => state);
 
     const { control, handleSubmit, setValue } = useForm<AccountChangesForm>({
         defaultValues: {
             email: user?.email,
-            name: user?.name
+            name: user?.name,
+            phone_number: appSettings?.phone_number
         },
         resolver: zodResolver(schema)
     });
@@ -39,13 +43,23 @@ export const ConfigurationModal: React.FC<ConfigurationModalProps> = ({ open, se
             delete data.repeat_password;
         }
 
+        if(data.phone_number){
+            putAppSettings.mutate({phone_number: data.phone_number}, {
+                onError(err){
+                    showError(err);
+                }
+            });
+            delete data.phone_number;
+        }
+
         put.mutate(data, {
             onSuccess(response) {
                 updateToken(response.token, response.time_expired_token);
                 updateUser(response.jwt);
-                setValue('password','');
-                setValue('repeat_password','');
+                setValue('password', '');
+                setValue('repeat_password', '');
                 toast.success('Se actualizo correctamente');
+                setOpen(false);
             },
             onError(error) {
                 showError(error);
@@ -55,7 +69,7 @@ export const ConfigurationModal: React.FC<ConfigurationModalProps> = ({ open, se
 
     return (
         <>
-        <AppLoading loading={put.isPending} />
+            <AppLoading loading={put.isPending} />
             <Dialog.Root open={open} onOpenChange={({ open }) => setOpen(open)}>
                 <Portal>
                     <Dialog.Backdrop />
@@ -120,6 +134,19 @@ export const ConfigurationModal: React.FC<ConfigurationModalProps> = ({ open, se
 
                                     </div>
 
+                                    <div className="">
+                                        <h3
+                                            className="text-xl font-bold"
+                                        >{t('mobile.menu.system')}</h3>
+
+                                        <AppInput
+                                            fullWidth
+                                            className="w-full mt-2"
+                                            name="phone_number"
+                                            control={control}
+                                            label={t('form-services-contact.número_de_contacto')}
+                                        />
+                                    </div>
                                 </div>
                             </Dialog.Body>
                             <Dialog.Footer>
@@ -127,7 +154,7 @@ export const ConfigurationModal: React.FC<ConfigurationModalProps> = ({ open, se
                                     <Button variant="outline">{t_core('app.regresar')}</Button>
                                 </Dialog.ActionTrigger>
                                 <ButtonPrimary onClick={handleSubmit(onSaveAccount)}>
-                                    Guardar Cambios
+                                     {t('login.labels.save-changes')}
                                 </ButtonPrimary>
                             </Dialog.Footer>
                             <Dialog.CloseTrigger asChild>
