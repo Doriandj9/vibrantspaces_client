@@ -55,7 +55,7 @@ export const ForgotPassword = () => {
                                         label={t('login.inputs.email.placeholder')}
                                     />
 
-                                    <div className="mt-2">
+                                    <div className="mt-2 relative z-10">
                                         <Link to={webRoutes.login.path} className="text-primary underline">
                                             {t('login.header.title')}
                                         </Link>
